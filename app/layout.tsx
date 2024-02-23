@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn("font-spaceGrotesk antialiased", spaceGrotesk.variable)}
+        className={cn("font-spaceGrotesk antialiased", spaceGrotesk.variable)} // cn is to merge a couple of class names together
       >
         {children}
       </body>
