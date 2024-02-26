@@ -78,3 +78,11 @@
 .authentication {
   @apply flex items-center min-h-screen w-full bg-primary;
 }
+
+.root {
+  @apply flex min-h-screen w-full flex-col lg:flex-row bg-slate-50;
+}
+
+.root-container {
+  @apply mt-10 flex-1 overflow-auto py-8 lg:py-10 lg:mt-0 lg:max-h-screen;
+}
