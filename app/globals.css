@@ -89,6 +89,6 @@
 
 @layer utilities {
   .wrapper {
-    @apply max-w-6xl mx-auto px-5 p-10-regular md:px-10 w-full text-dark-500;
+    @apply max-w-6xl mx-auto px-5 p-10 md:px-10 w-full text-dark-500;
   }
 }
