@@ -14,6 +14,7 @@ const Sidebar = () => {
             height={50}
           />
         </Link>
+        <nav className="sidebar-nav"></nav>
       </div>
     </aside>
   );
