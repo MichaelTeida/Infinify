@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{ variables: { colorPrimary: "#e14622" } }}>
       <html lang="en">
         <body
           className={cn("font-spaceGrotesk antialiased", spaceGrotesk.variable)} // cn is to merge a couple of class names together
