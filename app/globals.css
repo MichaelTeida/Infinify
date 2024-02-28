@@ -96,6 +96,10 @@
   .sidebar {
     @apply hidden h-screen w-80 bg-orange-50 p-6 shadow-md shadow-orange-200/50 lg:flex;
   }
+
+  .sidebar-container {
+    @apply flex flex-col size-full gap-5;
+  }
 }
 
 /* Clerk overrides */
