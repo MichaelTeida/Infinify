@@ -91,8 +91,14 @@
   .wrapper {
     @apply max-w-6xl mx-auto px-5 p-10 md:px-10 w-full text-dark-500;
   }
+
+  /* Sidebar component */
+  .sidebar {
+    @apply hidden h-screen w-80 bg-orange-50 p-6 shadow-md shadow-orange-200/50 lg:flex;
+  }
 }
 
+/* Clerk overrides */
 .cl-internal-16oa7nw,
 .cl-internal-uyu30o {
   display: none;
