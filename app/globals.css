@@ -104,6 +104,10 @@
   .sidebar-logo {
     @apply flex items-center justify-center gap-2 md:py-2;
   }
+
+  .sidebar-nav {
+    @apply h-full flex-col justify-between md:flex md:gap-3;
+  }
 }
 
 /* Clerk overrides */
