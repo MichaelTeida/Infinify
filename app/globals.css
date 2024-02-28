@@ -76,7 +76,7 @@
 }
 
 .authentication {
-  @apply flex items-center min-h-screen w-full bg-primary;
+  @apply flex justify-center items-center min-h-screen w-full bg-orange-100;
 }
 
 .root {
