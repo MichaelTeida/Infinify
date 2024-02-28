@@ -76,7 +76,7 @@
 }
 
 .authentication {
-  @apply flex justify-center items-center min-h-screen w-full bg-orange-100;
+  @apply flex justify-center items-center min-h-screen w-full bg-orange-50;
 }
 
 .root {
@@ -99,6 +99,10 @@
 
   .sidebar-container {
     @apply flex flex-col size-full gap-5;
+  }
+
+  .sidebar-logo {
+    @apply flex items-center justify-center gap-2 md:py-2;
   }
 }
 
