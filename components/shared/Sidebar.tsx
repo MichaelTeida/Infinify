@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { SignedIn } from "@clerk/nextjs";
 
 const Sidebar = () => {
   return (
@@ -14,7 +15,11 @@ const Sidebar = () => {
             height={50}
           />
         </Link>
-        <nav className="sidebar-nav"></nav>
+        <nav className="sidebar-nav">
+          <SignedIn>
+            <ul className="sidebar-list"></ul>
+          </SignedIn>
+        </nav>
       </div>
     </aside>
   );
