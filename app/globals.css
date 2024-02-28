@@ -92,3 +92,8 @@
     @apply max-w-6xl mx-auto px-5 p-10 md:px-10 w-full text-dark-500;
   }
 }
+
+.cl-internal-16oa7nw,
+.cl-internal-uyu30o {
+  display: none;
+}
