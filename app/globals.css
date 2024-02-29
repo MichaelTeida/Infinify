@@ -102,11 +102,11 @@
   }
 
   .sidebar-container {
-    @apply flex flex-col size-full gap-5;
+    @apply flex flex-col size-full gap-5 py-5;
   }
 
   .sidebar-logo {
-    @apply flex items-center justify-center md:pt-8 p-3;
+    @apply flex items-center justify-center md:py-3;
   }
 
   .sidebar-nav {
@@ -146,4 +146,14 @@
 .cl-internal-16oa7nw,
 .cl-internal-uyu30o {
   display: none;
+}
+
+.cl-internal-1cd5e4l {
+  flex-direction: row-reverse;
+  gap: 12px;
+}
+
+.cl-internal-jayce9 {
+  font-size: 1rem;
+  font-weight: 600;
 }
