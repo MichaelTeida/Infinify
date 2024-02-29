@@ -80,7 +80,7 @@ const Sidebar = () => {
                   </li>
                 );
               })}
-              <li className="flex-center cursor-pointer sidebar-element">
+              <li className="flex-center cursor-pointer sidebar-element h-14">
                 <div className="sidebar-link">
                   <UserButton afterSignOutUrl="/" showName />
                 </div>
