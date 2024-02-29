@@ -94,7 +94,7 @@
 
   /* Sidebar component */
   .sidebar {
-    @apply hidden h-screen w-80 bg-orange-50 p-6 shadow-md shadow-orange-200/50 lg:flex;
+    @apply hidden h-screen w-80 bg-orange-50 shadow-md shadow-orange-200/50 lg:flex;
   }
 
   .sidebar-container {
@@ -102,7 +102,7 @@
   }
 
   .sidebar-logo {
-    @apply flex items-center justify-center md:py-2;
+    @apply flex items-center justify-center md:pt-7 p-3;
   }
 
   .sidebar-nav {
@@ -110,11 +110,11 @@
   }
 
   .sidebar-list {
-    @apply hidden w-full flex-col items-start gap-3 md:flex;
+    @apply hidden w-full flex-col items-start gap-2 md:flex px-6;
   }
 
   .sidebar-element {
-    @apply flex justify-center items-center w-full p-8 font-semibold leading-tight whitespace-nowrap rounded-full bg-cover transition-all hover:bg-orange-300 hover:shadow-inner;
+    @apply flex justify-center items-center w-full p-5 font-semibold leading-tight whitespace-nowrap rounded-full bg-cover transition-all hover:bg-orange-200 hover:shadow-inner;
   }
 }
 
