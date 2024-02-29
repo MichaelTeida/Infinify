@@ -30,9 +30,20 @@ const Sidebar = () => {
                 return (
                   <li
                     key={link.route}
-                    className={`sidebar-element group ${isActive ? "bg-orange-500 text-white" : "text-gray-800"}`}
+                    className={
+                      link.available
+                        ? `sidebar-element group ${isActive ? "bg-orange-500 text-white font-bold" : "text-gray-800"}`
+                        : "sidebar-element-disabled group"
+                    }
                   >
-                    <Link href={link.route} className="sidebar-link">
+                    <Link
+                      href={link.route}
+                      className={`${
+                        link.available
+                          ? "sidebar-link"
+                          : "sidebar-link-disabled"
+                      } ${isActive && "brightness-200"}`}
+                    >
                       {link.icon && <link.icon />}
                       {link.label}
                     </Link>
