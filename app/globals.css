@@ -134,11 +134,11 @@
   }
 
   .sidebar-link {
-    @apply p-5 pl-7 font-semibold flex items-center size-full gap-5;
+    @apply p-4 pl-7 font-semibold flex items-center size-full gap-5;
   }
 
   .sidebar-link-disabled {
-    @apply p-5 pl-7 font-semibold flex items-center size-full gap-5 text-gray-400 select-none pointer-events-none;
+    @apply p-4 pl-7 font-semibold flex items-center size-full gap-5 text-gray-400 select-none pointer-events-none;
   }
 }
 
