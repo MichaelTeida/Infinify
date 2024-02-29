@@ -6,6 +6,7 @@ import Image from "next/image";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { navLinks } from "@/constants";
 import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -50,6 +51,9 @@ const Sidebar = () => {
                   </li>
                 );
               })}
+              <Button asChild className="gradient-background bg-cover">
+                <Link href="/sign-in">Login</Link>
+              </Button>
             </ul>
           </SignedIn>
           <SignedOut></SignedOut>
