@@ -58,6 +58,9 @@ export const navLinks = [
     icon: PaletteIcon,
     available: true,
   },
+];
+
+export const navControlLinks = [
   {
     label: "Profile",
     route: "/profile",
