@@ -3,8 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { navLinks } from "@/constants";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { navControlLinks, navLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
@@ -51,6 +51,38 @@ const Sidebar = () => {
                   </li>
                 );
               })}
+            </ul>
+
+            <ul className="sidebar-list">
+              {navControlLinks.map((link) => {
+                const isActive = link.route === pathname;
+
+                return (
+                  <li
+                    key={link.route}
+                    className={
+                      link.available
+                        ? `sidebar-element group ${isActive ? "sidebar-element-active" : "sidebar-element-inactive"}`
+                        : "sidebar-element-disabled group"
+                    }
+                  >
+                    <Link
+                      href={link.route}
+                      className={`${
+                        link.available
+                          ? "sidebar-link"
+                          : "sidebar-link-disabled"
+                      } ${isActive && "brightness-200"}`}
+                    >
+                      {link.icon && <link.icon />}
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+              <li className="flex-center cursor-pointer sidebar-element">
+                <UserButton afterSignOutUrl="/" showName />
+              </li>
             </ul>
           </SignedIn>
           <SignedOut>
