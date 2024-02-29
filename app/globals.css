@@ -114,11 +114,19 @@
   }
 
   .sidebar-element {
-    @apply flex justify-center items-center w-full font-semibold leading-tight whitespace-nowrap rounded-full bg-cover transition-all hover:bg-orange-200 hover:shadow-inner hover:drop-shadow-md;
+    @apply flex justify-center items-center w-full font-semibold leading-tight whitespace-nowrap rounded-full bg-cover transition-all hover:bg-orange-200 hover:shadow-inner hover:shadow-md;
+  }
+
+  .sidebar-element-disabled {
+    @apply flex justify-center items-center w-full font-semibold leading-tight whitespace-nowrap rounded-full bg-cover transition-all hover:bg-gray-100 hover:shadow-inner hover:shadow-md;
   }
 
   .sidebar-link {
-    @apply p-5 pl-7 font-semibold flex size-full gap-5;
+    @apply p-5 pl-7 font-semibold flex items-center size-full gap-5;
+  }
+
+  .sidebar-link-disabled {
+    @apply p-5 pl-7 font-semibold flex size-full gap-5 cursor-not-allowed text-gray-400;
   }
 }
 
