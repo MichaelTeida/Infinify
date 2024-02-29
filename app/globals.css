@@ -106,11 +106,15 @@
   }
 
   .sidebar-nav {
-    @apply h-full flex-col justify-between md:flex md:gap-3;
+    @apply h-full flex-col overflow-auto justify-between md:flex md:gap-3;
   }
 
   .sidebar-list {
     @apply hidden w-full flex-col items-start gap-3 md:flex;
+  }
+
+  .sidebar-element {
+    @apply flex justify-center items-center w-full p-8 font-semibold leading-tight whitespace-nowrap rounded-full bg-cover transition-all hover:bg-orange-300 hover:shadow-inner;
   }
 }
 
