@@ -65,7 +65,7 @@ export const navLinks = [
     available: true,
   },
   {
-    label: "Buy Credits",
+    label: "Buy Tokens",
     route: "/tokens",
     icon: AccountBalanceWalletIcon,
     available: true,
