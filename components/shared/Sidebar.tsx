@@ -32,7 +32,10 @@ const Sidebar = () => {
                     key={link.route}
                     className={`sidebar-element group ${isActive ? "bg-orange-500 text-white" : "text-gray-800"}`}
                   >
-                    {link.label}
+                    <Link href={link.route} className="sidebar-link">
+                      {link.icon && <link.icon />}
+                      {link.label}
+                    </Link>
                   </li>
                 );
               })}
