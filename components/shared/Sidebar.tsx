@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { SignedIn } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { navLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 
@@ -32,7 +32,7 @@ const Sidebar = () => {
                     key={link.route}
                     className={
                       link.available
-                        ? `sidebar-element group ${isActive ? "bg-orange-500 text-white font-bold" : "text-gray-800"}`
+                        ? `sidebar-element group ${isActive ? "sidebar-element-active" : "sidebar-element-inactive"}`
                         : "sidebar-element-disabled group"
                     }
                   >
@@ -52,6 +52,7 @@ const Sidebar = () => {
               })}
             </ul>
           </SignedIn>
+          <SignedOut></SignedOut>
         </nav>
       </div>
     </aside>
