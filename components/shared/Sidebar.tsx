@@ -51,12 +51,13 @@ const Sidebar = () => {
                   </li>
                 );
               })}
-              <Button asChild className="gradient-background bg-cover">
-                <Link href="/sign-in">Login</Link>
-              </Button>
             </ul>
           </SignedIn>
-          <SignedOut></SignedOut>
+          <SignedOut>
+            <Button asChild className="gradient-background bg-cover">
+              <Link href="/sign-in">Login</Link>
+            </Button>
+          </SignedOut>
         </nav>
       </div>
     </aside>
