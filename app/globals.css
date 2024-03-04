@@ -113,32 +113,55 @@
     @apply h-full flex-col overflow-auto justify-between md:flex md:gap-3;
   }
 
-  .sidebar-list {
+  .sidebar-nav_list {
     @apply hidden w-full flex-col items-start gap-2 md:flex px-6;
   }
 
-  .sidebar-element {
+  /* Nav elements */
+
+  .nav-element {
     @apply flex justify-center items-center w-full font-semibold leading-tight whitespace-nowrap rounded-full bg-cover transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
   }
 
-  .sidebar-element-active {
+  .nav-element-active {
     @apply gradient-background text-white font-bold;
   }
 
-  .sidebar-element-inactive {
+  .nav-element-inactive {
     @apply text-gray-800;
   }
 
-  .sidebar-element-disabled {
+  .nav-element-disabled {
     @apply flex justify-center items-center w-full font-semibold leading-tight whitespace-nowrap rounded-full bg-cover cursor-not-allowed transition-all hover:backdrop-brightness-95 hover:shadow-inner hover:shadow-md;
   }
 
-  .sidebar-link {
+  .nav-link {
     @apply p-4 pl-7 font-semibold flex items-center size-full gap-5;
   }
 
-  .sidebar-link-disabled {
+  .nav-link-disabled {
     @apply p-4 pl-7 font-semibold flex items-center size-full gap-5 text-gray-400 select-none pointer-events-none;
+  }
+
+  /* NavMobile / Header Component */
+  .header {
+    @apply flex justify-between fixed h-16 w-full border-b-2 border-orange-50 bg-white p-5 lg:hidden;
+  }
+
+  .header-content {
+    @apply flex items-center justify-center gap-3 md:py-2;
+  }
+
+  .header-nav_content {
+    @apply flex flex-col justify-between bg-orange-50 overflow-auto p-4;
+  }
+
+  .header-nav_content button {
+    @apply focus:ring-0 focus-visible:ring-transparent focus:ring-offset-0 focus-visible:ring-offset-0 focus-visible:outline-none focus-visible:border-none;
+  }
+
+  .header-nav_list {
+    @apply flex w-full flex-col mt-7 gap-2;
   }
 }
 
@@ -156,4 +179,10 @@
 .cl-internal-jayce9 {
   font-size: 1rem;
   font-weight: 600;
+}
+
+/* Material Icons overrides */
+
+.nav-menu_icon {
+  font-size: 40px !important;
 }
