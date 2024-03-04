@@ -9,7 +9,7 @@ interface MongooseConnection {
 }
 
 // Cache for MongoDB connection
-let cached: MongooseConnection = (global as any).mongoose;
+let cached: MongooseConnection = (global as any).mongoose; // (global as any) - Bypasses TypeScript checks
 
 // Initialize cache if it doesn't exist
 if (!cached) {
