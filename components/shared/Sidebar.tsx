@@ -24,7 +24,7 @@ const Sidebar = () => {
         </Link>
         <nav className="sidebar-nav">
           <SignedIn>
-            <ul className="sidebar-list">
+            <ul className="sidebar-nav_list">
               {navLinks.map((link) => {
                 const isActive = link.route === pathname;
 
@@ -33,16 +33,14 @@ const Sidebar = () => {
                     key={link.route}
                     className={
                       link.available
-                        ? `sidebar-element group ${isActive ? "sidebar-element-active" : "sidebar-element-inactive"}`
-                        : "sidebar-element-disabled group"
+                        ? `nav-element group ${isActive ? "nav-element-active" : "nav-element-inactive"}`
+                        : "nav-element-disabled group"
                     }
                   >
                     <Link
                       href={link.route}
                       className={`${
-                        link.available
-                          ? "sidebar-link"
-                          : "sidebar-link-disabled"
+                        link.available ? "nav-link" : "nav-link-disabled"
                       } ${isActive && "brightness-200"}`}
                     >
                       {link.icon && <link.icon />}
@@ -53,7 +51,7 @@ const Sidebar = () => {
               })}
             </ul>
 
-            <ul className="sidebar-list">
+            <ul className="sidebar-nav_list">
               {navControlLinks.map((link) => {
                 const isActive = link.route === pathname;
 
@@ -62,16 +60,14 @@ const Sidebar = () => {
                     key={link.route}
                     className={
                       link.available
-                        ? `sidebar-element group ${isActive ? "sidebar-element-active" : "sidebar-element-inactive"}`
-                        : "sidebar-element-disabled group"
+                        ? `nav-element group ${isActive ? "nav-element-active" : "nav-element-inactive"}`
+                        : "nav-element-disabled group"
                     }
                   >
                     <Link
                       href={link.route}
                       className={`${
-                        link.available
-                          ? "sidebar-link"
-                          : "sidebar-link-disabled"
+                        link.available ? "nav-link" : "nav-link-disabled"
                       } ${isActive && "brightness-200"}`}
                     >
                       {link.icon && <link.icon />}
@@ -81,7 +77,7 @@ const Sidebar = () => {
                 );
               })}
               <li className="flex-center cursor-pointer sidebar-element h-14">
-                <div className="sidebar-link">
+                <div className="nav-link">
                   <UserButton afterSignOutUrl="/" showName />
                 </div>
               </li>
