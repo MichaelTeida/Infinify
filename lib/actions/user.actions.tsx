@@ -7,7 +7,6 @@ import { handleError } from "../utils";
 
 // types
 type Action = () => Promise<any>;
-type UserParams = { [key: string]: any };
 
 const handleDatabaseAction = async (action: Action) => {
   try {
@@ -19,7 +18,7 @@ const handleDatabaseAction = async (action: Action) => {
   }
 };
 
-export const createUser = (user: UserParams) =>
+export const createUser = (user: CreateUserParams) =>
   handleDatabaseAction(() => User.create(user));
 
 export const getUserById = (userId: string) =>
@@ -29,7 +28,7 @@ export const getUserById = (userId: string) =>
     return user;
   });
 
-export const updateUser = (clerkId: string, user: UserParams) =>
+export const updateUser = (clerkId: string, user: UpdateUserParams) =>
   handleDatabaseAction(() => {
     const updatedUser = User.findOneAndUpdate({ clerkId }, user, { new: true });
     if (!updatedUser) throw new Error("User update failed");
