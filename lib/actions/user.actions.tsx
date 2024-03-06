@@ -44,13 +44,13 @@ export const deleteUser = (clerkId: string) =>
     return deletedUser || null;
   });
 
-export const updateCredits = (userId: string, creditFee: number) =>
+export const updateTokens = (userId: string, tokensFee: number) =>
   handleDatabaseAction(() => {
-    const updatedUserCredits = User.findOneAndUpdate(
+    const updatedUserTokens = User.findOneAndUpdate(
       { _id: userId },
-      { $inc: { creditBalance: creditFee } },
+      { $inc: { tokenBalance: tokensFee } },
       { new: true },
     );
-    if (!updatedUserCredits) throw new Error("User credits update failed");
-    return updatedUserCredits;
+    if (!updatedUserTokens) throw new Error("User tokens update failed");
+    return updatedUserTokens;
   });
