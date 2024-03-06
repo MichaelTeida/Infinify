@@ -57,9 +57,3 @@ export const formUrlQuery = ({
   // Returning a new URL with updated search parameters
   return `${window.location.pathname}?${stringify(params, { skipNulls: true })}`;
 };
-
-type FormUrlQueryParams = {
-  searchParams: URLSearchParams;
-  key: string;
-  value: string;
-};
