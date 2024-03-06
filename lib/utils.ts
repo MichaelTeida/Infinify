@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { parse, stringify } from "qs";
+import qs from "qs";
 
 // Function for merging CSS classes
 export function cn(...inputs: ClassValue[]) {
@@ -53,7 +53,7 @@ export const formUrlQuery = ({
   value,
 }: FormUrlQueryParams) => {
   // Parsing existing search parameters and adding a new one or updating an existing one
-  const params = { ...parse(searchParams.toString()), [key]: value };
+  const params = { ...qs.parse(searchParams.toString()), [key]: value };
   // Returning a new URL with updated search parameters
-  return `${window.location.pathname}?${stringify(params, { skipNulls: true })}`;
+  return `${window.location.pathname}?${qs.stringify(params, { skipNulls: true })}`;
 };
