@@ -63,31 +63,24 @@ export async function POST(req: Request) {
     const user = {
       clerkId: id,
       email: email_addresses[0].email_address,
-      username: username || "Anonymous",
+      username: username!,
       firstName: first_name,
       lastName: last_name,
       photo: image_url,
     };
 
-    try {
-      const newUser = await createUser(user); // Call createUser function
+    const newUser = await createUser(user);
 
-      // Set public metadata
-      if (newUser) {
-        await clerkClient.users.updateUserMetadata(id, {
-          publicMetadata: {
-            userId: newUser._id,
-          },
-        });
-      }
-
-      return NextResponse.json({ message: "OK", user: newUser });
-    } catch (error) {
-      console.error("Error creating user:", error);
-      return new Response(`Error creating user: ${error}`, {
-        status: 500,
+    // Set public metadata
+    if (newUser) {
+      await clerkClient.users.updateUserMetadata(id, {
+        publicMetadata: {
+          userId: newUser._id,
+        },
       });
     }
+
+    return NextResponse.json({ message: "OK", user: newUser });
   }
 
   // Update
