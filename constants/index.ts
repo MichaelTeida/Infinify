@@ -76,7 +76,7 @@ export const navControlLinks = [
 ];
 
 export const modificationTypes = {
-  restore: {
+  upscale: {
     type: "restore",
     title: "Image Upscale",
     description: "Enhance image quality by reducing noise and correcting flaws",
@@ -93,14 +93,14 @@ export const modificationTypes = {
   fill: {
     type: "fill",
     title: "Generative Fill",
-    subTitle: "Fill in missing parts of your image",
+    description: "Fill in missing parts of your image",
     config: { fillBackground: true },
     icon: SettingsOverscanIcon,
   },
   remove: {
     type: "remove",
     title: "Object Remove",
-    subTitle: "Remove unwanted objects from your image",
+    description: "Remove unwanted objects from your image",
     config: {
       remove: { prompt: "", removeShadow: true, multiple: true },
     },
@@ -109,7 +109,7 @@ export const modificationTypes = {
   recolor: {
     type: "recolor",
     title: "Object Recolor",
-    subTitle: "Change the color of objects in your image",
+    description: "Change the color of objects in your image",
     config: {
       recolor: { prompt: "", to: "", multiple: true },
     },
