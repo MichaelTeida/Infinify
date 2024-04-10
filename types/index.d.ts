@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 declare type FormUrlQueryParams = {
   searchParams: URLSearchParams;
   key: string;
@@ -18,4 +20,9 @@ declare type UpdateUserParams = {
   lastName: string;
   username: string;
   photo: string;
+};
+
+declare type SearchParamProps = {
+  params: { id: string; type: TransformationTypeKey };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
