@@ -74,3 +74,45 @@ export const navControlLinks = [
     available: true,
   },
 ];
+
+export const modificationTypes = {
+  restore: {
+    type: "restore",
+    title: "Image Upscale",
+    description: "Enhance image quality by reducing noise and correcting flaws",
+    config: { restore: true },
+    icon: AutoFixHighIcon,
+  },
+  removeBackground: {
+    type: "removeBackground",
+    title: "Background Remove",
+    description: "Easily remove background from your image",
+    config: { removeBackground: true },
+    icon: WallpaperIcon,
+  },
+  fill: {
+    type: "fill",
+    title: "Generative Fill",
+    subTitle: "Fill in missing parts of your image",
+    config: { fillBackground: true },
+    icon: SettingsOverscanIcon,
+  },
+  remove: {
+    type: "remove",
+    title: "Object Remove",
+    subTitle: "Remove unwanted objects from your image",
+    config: {
+      remove: { prompt: "", removeShadow: true, multiple: true },
+    },
+    icon: SearchOffIcon,
+  },
+  recolor: {
+    type: "recolor",
+    title: "Object Recolor",
+    subTitle: "Change the color of objects in your image",
+    config: {
+      recolor: { prompt: "", to: "", multiple: true },
+    },
+    icon: PaletteIcon,
+  },
+};
