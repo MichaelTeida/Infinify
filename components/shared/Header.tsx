@@ -1,10 +1,16 @@
 import React from "react";
 
-const Header = ({ title, subTitle }: { title: string; subTitle?: string }) => {
+const Header = ({
+  title,
+  description,
+}: {
+  title: string;
+  description?: string;
+}) => {
   return (
     <>
       <h2 className="page-title">{title}</h2>
-      {subTitle && <p className="mt-4">{subTitle}</p>}
+      {description && <p className="mt-4">{description}</p>}
     </>
   );
 };
