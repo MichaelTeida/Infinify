@@ -1,7 +1,8 @@
 import React from "react";
+import Header from "@/components/shared/Header";
 
-const AddTransformationTypePage = () => {
-  return <div>AddTransformationTypePage</div>;
+const AddModificationTypePage = () => {
+  return <Header title="Modification title" subTitle="Modification subtitle" />;
 };
 
-export default AddTransformationTypePage;
+export default AddModificationTypePage;

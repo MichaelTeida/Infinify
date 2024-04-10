@@ -75,6 +75,10 @@
   }
 }
 
+.page-title {
+  @apply font-bold text-[28px] md:text-[34px] text-gray-800;
+}
+
 .authentication {
   @apply flex justify-center items-center min-h-screen w-full bg-orange-50;
 }
