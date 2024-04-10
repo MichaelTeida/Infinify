@@ -1,8 +1,13 @@
 import React from "react";
 import Header from "@/components/shared/Header";
+import { modificationTypes } from "@/constants";
 
-const AddModificationTypePage = () => {
-  return <Header title="Modification title" subTitle="Modification subtitle" />;
+const AddModificationTypePage = ({ params: { type } }: SearchParamProps) => {
+  const modification = modificationTypes[type];
+
+  return (
+    <Header title={modification.title} description={modification.description} />
+  );
 };
 
 export default AddModificationTypePage;
