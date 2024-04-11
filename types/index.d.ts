@@ -23,6 +23,15 @@ declare type UpdateUserParams = {
 };
 
 declare type SearchParamProps = {
-  params: { id: string; type: TransformationTypeKey };
+  params: { id: string; type: ModificationTypeKey };
   searchParams: { [key: string]: string | string[] | undefined };
+};
+
+declare type ModificationFormProps = {
+  action: "Add" | "Update";
+  userId: string;
+  type: ModificationTypeKey;
+  creditBalance: number;
+  data?: IImage | null;
+  config?: Modifications | null;
 };
