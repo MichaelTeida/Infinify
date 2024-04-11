@@ -1,7 +1,7 @@
 import React from "react";
 
-const TransformationsPage = () => {
-  return <div>TransformationsPage</div>;
+const ModificationsPage = () => {
+  return <div>ModificationsPage</div>;
 };
 
-export default TransformationsPage;
+export default ModificationsPage;
