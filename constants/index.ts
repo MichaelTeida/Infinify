@@ -116,3 +116,11 @@ export const modificationTypes = {
     icon: PaletteIcon,
   },
 };
+
+export const defaultValues = {
+  title: "",
+  aspectRatio: "",
+  color: "",
+  prompt: "",
+  publicId: "",
+};
