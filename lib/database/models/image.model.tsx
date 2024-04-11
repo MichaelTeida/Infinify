@@ -1,6 +1,6 @@
 import { model, models, Schema, Document } from "mongoose";
 
-export interface Image extends Document {
+export interface ImageModel extends Document {
   title: string;
   author: {
     _id: string;
