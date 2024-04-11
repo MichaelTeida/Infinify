@@ -31,7 +31,7 @@ declare type ModificationFormProps = {
   action: "Add" | "Update";
   userId: string;
   type: ModificationTypeKey;
-  creditBalance: number;
+  tokenBalance: number;
   data?: IImage | null;
   config?: Modifications | null;
 };
