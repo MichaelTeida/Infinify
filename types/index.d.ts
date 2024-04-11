@@ -32,7 +32,7 @@ declare type ModificationFormProps = {
   userId: string;
   type: ModificationTypeKey;
   tokenBalance: number;
-  data?: IImage | null;
+  data?: ImageModel | null;
   config?: Modifications | null;
 };
 
