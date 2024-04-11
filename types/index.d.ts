@@ -35,3 +35,10 @@ declare type ModificationFormProps = {
   data?: IImage | null;
   config?: Modifications | null;
 };
+
+declare type ModificationTypeKey =
+  | "restore"
+  | "fill"
+  | "remove"
+  | "recolor"
+  | "removeBackground";
