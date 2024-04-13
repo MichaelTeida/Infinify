@@ -25,6 +25,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { defaultValues, modificationTypes } from "@/constants";
 import { CustomField } from "@/components/shared/CustomField";
+import { useState } from "react";
 
 export const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -42,6 +43,12 @@ const ModificationForm = ({
   type,
 }: ModificationFormProps) => {
   const modificationType = modificationTypes[type];
+  const [image, setImage] = useState(data);
+  const [newModification, setNewModification] = useState<Modifications | null>(
+    null,
+  );
+  {
+  }
   const initialValues =
     data && action === "Update"
       ? {
