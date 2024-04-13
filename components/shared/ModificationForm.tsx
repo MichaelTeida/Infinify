@@ -16,8 +16,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { defaultValues } from "@/constants";
+import { CustomField } from "@/components/shared/CustomField";
 
-const formSchema = z.object({
+export const formSchema = z.object({
   title: z.string().min(2).max(50),
   aspectRatio: z.string().optional(),
   color: z.string().optional(),
@@ -50,7 +51,17 @@ const ModificationForm = ({ data = null, action }: ModificationFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8"></form>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <CustomField
+          control={form.control}
+          name="title"
+          formLabel="Image"
+          className="w-full"
+          render={({ field }) => (
+            <Input {...field} className="form-input_field" />
+          )}
+        />
+      </form>
     </Form>
   );
 };
