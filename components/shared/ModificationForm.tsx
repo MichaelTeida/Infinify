@@ -14,8 +14,16 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import { Input } from "@/components/ui/input";
-import { defaultValues } from "@/constants";
+import { defaultValues, modificationTypes } from "@/constants";
 import { CustomField } from "@/components/shared/CustomField";
 
 export const formSchema = z.object({
@@ -26,7 +34,14 @@ export const formSchema = z.object({
   publicId: z.string(),
 });
 
-const ModificationForm = ({ data = null, action }: ModificationFormProps) => {
+const ModificationForm = ({
+  data = null,
+  action,
+  userId,
+  tokenBalance,
+  type,
+}: ModificationFormProps) => {
+  const modificationType = modificationTypes[type];
   const initialValues =
     data && action === "Update"
       ? {
@@ -61,6 +76,23 @@ const ModificationForm = ({ data = null, action }: ModificationFormProps) => {
             <Input {...field} className="form-input_field" />
           )}
         />
+
+        {type === "fill" && (
+          <CustomField
+            render={({ field }) => (
+              <Select>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Theme" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="light">Light</SelectItem>
+                  <SelectItem value="dark">Dark</SelectItem>
+                  <SelectItem value="system">System</SelectItem>
+                </SelectContent>
+              </Select>
+            )}
+          />
+        )}
       </form>
     </Form>
   );
