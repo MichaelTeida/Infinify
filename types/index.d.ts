@@ -36,6 +36,22 @@ declare type ModificationFormProps = {
   config?: Modifications | null;
 };
 
+declare type Modifications = {
+  restore?: boolean;
+  fillBackground?: boolean;
+  remove?: {
+    prompt: string;
+    removeShadow?: boolean;
+    multiple?: boolean;
+  };
+  recolor?: {
+    prompt?: string;
+    to: string;
+    multiple?: boolean;
+  };
+  removeBackground?: boolean;
+};
+
 declare type ModificationTypeKey =
   | "restore"
   | "fill"
