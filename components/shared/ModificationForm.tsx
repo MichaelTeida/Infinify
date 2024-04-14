@@ -47,8 +47,11 @@ const ModificationForm = ({
   const [newModification, setNewModification] = useState<Modifications | null>(
     null,
   );
-  {
-  }
+  const onSelectFieldHandler = (
+    value: string,
+    onChangeField: (value: string) => void,
+  ) => {};
+
   const initialValues =
     data && action === "Update"
       ? {
@@ -86,10 +89,18 @@ const ModificationForm = ({
 
         {type === "fill" && (
           <CustomField
+            control={form.control}
+            name="aspectRatio"
+            formLabel="Aspect Ratio"
+            className="w-full"
             render={({ field }) => (
-              <Select>
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Theme" />
+              <Select
+                onValueChange={(value) =>
+                  onSelectFieldHandler(value, field.onChange)
+                }
+              >
+                <SelectTrigger className="form-select_field">
+                  <SelectValue placeholder="Choose size" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="light">Light</SelectItem>
