@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import qs from "qs";
+import { aspectRatioOptions } from "@/constants";
 
 // Function for merging CSS classes
 export function cn(...inputs: ClassValue[]) {
@@ -56,4 +57,20 @@ export const formUrlQuery = ({
   const params = { ...qs.parse(searchParams.toString()), [key]: value };
   // Returning a new URL with updated search parameters
   return `${window.location.pathname}?${qs.stringify(params, { skipNulls: true })}`;
+};
+
+// GE IMAGE SIZE
+export type AspectRatioKey = keyof typeof aspectRatioOptions;
+export const getImageSize = (
+  type: string,
+  image: any,
+  dimension: "width" | "height",
+): number => {
+  if (type === "fill") {
+    return (
+      aspectRatioOptions[image.aspectRatio as AspectRatioKey]?.[dimension] ||
+      1000
+    );
+  }
+  return image?.[dimension] || 1000;
 };
