@@ -23,9 +23,15 @@ import {
 } from "@/components/ui/select";
 
 import { Input } from "@/components/ui/input";
-import { defaultValues, modificationTypes } from "@/constants";
+import {
+  aspectRatioOptions,
+  defaultValues,
+  modificationTypes,
+} from "@/constants";
 import { CustomField } from "@/components/shared/CustomField";
 import { useState } from "react";
+import { element } from "prop-types";
+import { AspectRatioKey } from "@/lib/utils";
 
 export const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -103,9 +109,11 @@ const ModificationForm = ({
                   <SelectValue placeholder="Choose size" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="light">Light</SelectItem>
-                  <SelectItem value="dark">Dark</SelectItem>
-                  <SelectItem value="system">System</SelectItem>
+                  {Object.keys(aspectRatioOptions).map((element) => (
+                    <SelectItem key={element} value={element}>
+                      {aspectRatioOptions[element as AspectRatioKey].label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             )}
