@@ -119,6 +119,20 @@ const ModificationForm = ({
             )}
           />
         )}
+
+        {(type === "remove" || type === "recolor") && (
+          <div className="prompt-field">
+            <CustomField
+              control={form.control}
+              name="prompt"
+              formLabel={
+                type === "remove" ? "Remove the object." : "Recolor the object."
+              }
+              className="w-full"
+              render={({ field }) => <Input />}
+            ></CustomField>
+          </div>
+        )}
       </form>
     </Form>
   );
