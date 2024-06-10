@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -32,6 +31,8 @@ import { CustomField } from "@/components/shared/CustomField";
 import { useState } from "react";
 import { element } from "prop-types";
 import { AspectRatioKey } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
 export const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -46,6 +47,7 @@ const ModificationForm = ({
   action,
   userId,
   tokenBalance,
+  config = null,
   type,
 }: ModificationFormProps) => {
   const modificationType = modificationTypes[type];
@@ -53,6 +55,10 @@ const ModificationForm = ({
   const [newModification, setNewModification] = useState<Modifications | null>(
     null,
   );
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isModifying, setIsModifying] = useState(false);
+  const [modificationConfig, setModificationConfig] = useState(config);
+
   const onSelectFieldHandler = (
     value: string,
     onChangeField: (value: string) => void,
@@ -79,6 +85,13 @@ const ModificationForm = ({
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
   }
+
+  const onInputChangeHandler = (
+    fieldName: string,
+    value: string,
+    type: string,
+    onChangeField: (value: string) => void,
+  ) => {};
 
   return (
     <Form {...form}>
@@ -126,13 +139,59 @@ const ModificationForm = ({
               control={form.control}
               name="prompt"
               formLabel={
-                type === "remove" ? "Remove the object." : "Recolor the object."
+                type === "remove" ? "Remove the object" : "Recolor the object"
               }
               className="w-full"
-              render={({ field }) => <Input />}
-            ></CustomField>
+              render={({ field }) => (
+                <Input
+                  value={field.value}
+                  className="input_field"
+                  onChange={(e) => {
+                    onInputChangeHandler(
+                      "prompt",
+                      e.target.value,
+                      type,
+                      field.onChange,
+                    );
+                  }}
+                />
+              )}
+            />
+
+            {type === "recolor" && (
+              <CustomField
+                control={form.control}
+                formLabel="Replacement Color"
+                name="color"
+                className="w-full"
+                render={({ field }) => (
+                  <Input
+                    value={field.value}
+                    className="input_field"
+                    onChange={(e) => {
+                      onInputChangeHandler(
+                        "color",
+                        e.target.value,
+                        "recolor",
+                        field.onChange,
+                      );
+                    }}
+                  />
+                )}
+              />
+            )}
           </div>
         )}
+        <div className="flex justify-end">
+          <Button
+            type="submit"
+            className="submit-button capitalize"
+            disabled={isSubmitting}
+          >
+            Submit
+            <KeyboardDoubleArrowRightIcon />
+          </Button>
+        </div>
       </form>
     </Form>
   );
