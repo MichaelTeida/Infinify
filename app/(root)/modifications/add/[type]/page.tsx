@@ -23,12 +23,14 @@ const AddModificationTypePage = async ({
         title={modification.title}
         description={modification.description}
       />
-      <ModificationForm
-        action="Add"
-        userId={user._id}
-        type={modification.type as ModificationTypeKey}
-        tokenBalance={user.tokenBalance}
-      />
+      <section className="mt-8">
+        <ModificationForm
+          action="Add"
+          userId={user._id}
+          type={modification.type as ModificationTypeKey}
+          tokenBalance={user.tokenBalance}
+        />
+      </section>
     </>
   );
 };
