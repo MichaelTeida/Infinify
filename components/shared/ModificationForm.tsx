@@ -93,6 +93,8 @@ const ModificationForm = ({
     onChangeField: (value: string) => void,
   ) => {};
 
+  const onModifyHandler = () => {};
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -182,13 +184,23 @@ const ModificationForm = ({
             )}
           </div>
         )}
-        <div className="flex justify-end">
+        <div className="flex justify-end gap-4">
+          <Button
+            type="button"
+            className="submit-button capitalize"
+            disabled={isModifying || newModification === null}
+            onClick={onModifyHandler}
+          >
+            {isModifying ? "Modifying..." : "Apply Modification"}
+            <KeyboardDoubleArrowRightIcon />
+          </Button>
+
           <Button
             type="submit"
             className="submit-button capitalize"
             disabled={isSubmitting}
           >
-            Submit
+            {isSubmitting ? "Submitting..." : "Save image"}
             <KeyboardDoubleArrowRightIcon />
           </Button>
         </div>
