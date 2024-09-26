@@ -37,7 +37,7 @@ declare type ModificationFormProps = {
 };
 
 declare type Modifications = {
-  restore?: boolean;
+  upscale?: boolean;
   fillBackground?: boolean;
   remove?: {
     prompt: string;
@@ -53,7 +53,7 @@ declare type Modifications = {
 };
 
 declare type ModificationTypeKey =
-  | "restore"
+  | "upscale"
   | "fill"
   | "remove"
   | "recolor"

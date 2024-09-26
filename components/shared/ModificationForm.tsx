@@ -30,7 +30,7 @@ import {
 import { CustomField } from "@/components/shared/CustomField";
 import { useState } from "react";
 import { element } from "prop-types";
-import { AspectRatioKey } from "@/lib/utils";
+import { AspectRatioKey, debounce } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
@@ -43,12 +43,12 @@ export const formSchema = z.object({
 });
 
 const ModificationForm = ({
-  data = null,
   action,
   userId,
-  tokenBalance,
-  config = null,
   type,
+  tokenBalance,
+  data = null,
+  config = null,
 }: ModificationFormProps) => {
   const modificationType = modificationTypes[type];
   const [image, setImage] = useState(data);
@@ -58,11 +58,6 @@ const ModificationForm = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isModifying, setIsModifying] = useState(false);
   const [modificationConfig, setModificationConfig] = useState(config);
-
-  const onSelectFieldHandler = (
-    value: string,
-    onChangeField: (value: string) => void,
-  ) => {};
 
   const initialValues =
     data && action === "Update"
@@ -86,14 +81,42 @@ const ModificationForm = ({
     console.log(values);
   }
 
+  const onSelectFieldHandler = (
+    value: string,
+    onChangeField: (value: string) => void,
+  ) => {
+    const imageSize = aspectRatioOptions[value as AspectRatioKey];
+
+    setImage((prevState: any) => ({
+      ...prevState,
+      aspectRatio: imageSize.aspectRatio,
+      width: imageSize.width,
+      height: imageSize.height,
+    }));
+    setNewModification(modificationType.config);
+
+    return onChangeField(value);
+  };
+
   const onInputChangeHandler = (
     fieldName: string,
     value: string,
     type: string,
     onChangeField: (value: string) => void,
-  ) => {};
+  ) => {
+    debounce(() => {
+      setNewModification((prevState: any) => ({
+        ...prevState,
+        [type]: {
+          ...prevState?.[type],
+          [fieldName === "prompt" ? "prompt" : "to"]: value,
+        },
+      }));
+      return onChangeField(value);
+    }, 1000);
+  };
 
-  const onModifyHandler = () => {};
+  const onModifyHandler = async () => {};
 
   return (
     <Form {...form}>

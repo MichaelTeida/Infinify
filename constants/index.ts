@@ -77,10 +77,10 @@ export const navControlLinks = [
 
 export const modificationTypes = {
   upscale: {
-    type: "restore",
+    type: "upscale",
     title: "Image Upscale",
     description: "Enhance image quality by reducing noise and correcting flaws",
-    config: { restore: true },
+    config: { upscale: true },
     icon: AutoFixHighIcon,
   },
   removeBackground: {
