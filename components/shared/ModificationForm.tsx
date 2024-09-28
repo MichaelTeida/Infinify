@@ -210,17 +210,17 @@ const ModificationForm = ({
         <div className="flex flex-col md:flex-row md:justify-end gap-4">
           <Button
             type="button"
-            className="submit-button-mobile md:submit-button capitalize"
+            className="submit-button-mobile md:submit-button"
             disabled={isModifying || newModification === null}
             onClick={onModifyHandler}
           >
-            {isModifying ? "Modifying..." : "Apply Modification"}
+            {isModifying ? "Modifying..." : "Apply modification"}
             <KeyboardDoubleArrowRightIcon />
           </Button>
 
           <Button
             type="submit"
-            className="submit-button-mobile md:submit-button capitalize"
+            className="submit-button-mobile md:submit-button"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Submitting..." : "Save image"}
