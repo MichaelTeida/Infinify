@@ -28,11 +28,12 @@ import {
   modificationTypes,
 } from "@/constants";
 import { CustomField } from "@/components/shared/CustomField";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { element } from "prop-types";
-import { AspectRatioKey, debounce } from "@/lib/utils";
+import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import { updateTokens } from "@/lib/actions/user.actions";
 
 export const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -58,6 +59,7 @@ const ModificationForm = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isModifying, setIsModifying] = useState(false);
   const [modificationConfig, setModificationConfig] = useState(config);
+  const [isPending, startModification] = useTransition();
 
   const initialValues =
     data && action === "Update"
@@ -116,7 +118,20 @@ const ModificationForm = ({
     }, 1000);
   };
 
-  const onModifyHandler = async () => {};
+  // TODO: Return to updateTokens
+  const onModifyHandler = async () => {
+    setIsModifying(true);
+
+    setModificationConfig(
+      deepMergeObjects(newModification, modificationConfig),
+    );
+
+    setNewModification(null);
+
+    startModification(async () => {
+      // await updateTokens(userId, tokenFee);
+    });
+  };
 
   return (
     <Form {...form}>
