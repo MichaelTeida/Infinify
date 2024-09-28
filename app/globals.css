@@ -188,6 +188,10 @@
   .submit-button {
     @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-56 gap-1 gradient-background font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
   }
+
+  .submit-button-mobile {
+    @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-full gap-1 gradient-background font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
+  }
 }
 
 /* Clerk overrides */

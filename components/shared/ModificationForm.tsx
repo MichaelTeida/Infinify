@@ -207,10 +207,10 @@ const ModificationForm = ({
             )}
           </div>
         )}
-        <div className="flex justify-end gap-4">
+        <div className="flex flex-col md:flex-row md:justify-end gap-4">
           <Button
             type="button"
-            className="submit-button capitalize"
+            className="submit-button-mobile md:submit-button capitalize"
             disabled={isModifying || newModification === null}
             onClick={onModifyHandler}
           >
@@ -220,7 +220,7 @@ const ModificationForm = ({
 
           <Button
             type="submit"
-            className="submit-button capitalize"
+            className="submit-button-mobile md:submit-button capitalize"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Submitting..." : "Save image"}
