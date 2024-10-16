@@ -182,7 +182,7 @@
   }
 
   .input_field {
-    @apply rounded-full border-2 font-semibold text-[16px] leading-[140%] border-orange-200/25 shadow-sm shadow-orange-200/20 text-gray-700 disabled:opacity-100 h-[45px] md:h-[55px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important;
+    @apply rounded-full border-2 font-semibold text-[16px] leading-[140%] border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20 text-gray-700 disabled:opacity-100 h-[45px] md:h-[55px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important;
   }
 
   .submit-button {
@@ -218,7 +218,7 @@
   }
 
   .media-cta_icon-box {
-    @apply rounded-full bg-white p-5 shadow-sm  shadow-orange-900/20;
+    @apply rounded-full bg-white p-5 drop-shadow shadow-orange-900/20;
   }
 
   .media-cta_text {
