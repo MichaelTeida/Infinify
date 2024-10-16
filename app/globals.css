@@ -170,11 +170,11 @@
 
   /* Form */
   .form-input_field {
-    @apply rounded-full border-2 font-semibold text-[16px] leading-[140%] border-orange-200/25 shadow-sm shadow-orange-200/20 text-gray-700 disabled:opacity-100 h-[45px] md:h-[55px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important;
+    @apply rounded-full border-2 font-semibold text-[16px] leading-[140%] border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20 text-gray-700 disabled:opacity-100 h-[45px] md:h-[55px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important;
   }
 
   .form-select_field {
-    @apply w-full border-2 font-semibold text-[16px] leading-[140%] border-orange-200/25 shadow-sm shadow-orange-200/15 rounded-full h-[45px] md:h-[55px] text-gray-700 disabled:opacity-100 placeholder:text-dark-400/50 px-4 py-3 focus:ring-offset-0 focus-visible:ring-transparent focus:ring-transparent focus-visible:ring-0 focus-visible:outline-none !important;
+    @apply w-full border-2 font-semibold text-[16px] leading-[140%] border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/15 rounded-full h-[45px] md:h-[55px] text-gray-700 disabled:opacity-100 placeholder:text-dark-400/50 px-4 py-3 focus:ring-offset-0 focus-visible:ring-transparent focus:ring-transparent focus-visible:ring-0 focus-visible:outline-none !important;
   }
 
   .prompt-field {
@@ -191,6 +191,38 @@
 
   .submit-button-mobile {
     @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-full gap-1 gradient-background font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
+  }
+
+  /* ModificationForm Component */
+
+  .media-upload-field {
+    @apply grid h-fit min-h-[200px] grid-cols-1 gap-5 py-4 md:grid-cols-2;
+  }
+
+  /* MediaUploader Component */
+
+  .media-success-toast {
+    @apply text-green-700 bg-green-200;
+  }
+
+  .media-error-toast {
+    @apply text-red-700 bg-red-200;
+  }
+
+  .media-header-text {
+    @apply font-bold text-[18px] md:text-[24px] text-gray-800;
+  }
+
+  .media-cta_container {
+    @apply flex justify-center items-center h-64 cursor-pointer flex-col gap-5 rounded-[32px] border border-dashed bg-orange-100/20 shadow-inner shadow-orange-900/20 border-orange-200/25;
+  }
+
+  .media-cta_icon-box {
+    @apply rounded-full bg-white p-5 shadow-sm  shadow-orange-900/20;
+  }
+
+  .media-cta_text {
+    @apply font-medium text-[13px] leading-[100%];
   }
 }
 
@@ -222,4 +254,9 @@
 
 .nav-menu_icon {
   font-size: 40px !important;
+}
+
+.image-add_icon {
+  font-size: 32px !important;
+  @apply text-gray-800;
 }

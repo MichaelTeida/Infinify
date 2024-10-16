@@ -34,6 +34,7 @@ import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import { updateTokens } from "@/lib/actions/user.actions";
+import MediaUploader from "@/components/shared/MediaUploader";
 
 export const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -222,6 +223,24 @@ const ModificationForm = ({
             )}
           </div>
         )}
+
+        <div className="media-upload-field">
+          <CustomField
+            className="flex size-full flex-col"
+            control={form.control}
+            render={({ field }) => (
+              <MediaUploader
+                onValueChange={field.onChange}
+                setImage={setImage}
+                publicId={field.value}
+                image={image}
+                type={type}
+              />
+            )}
+            name="publicId"
+          />
+        </div>
+
         <div className="flex flex-col md:flex-row md:justify-end gap-4">
           <Button
             type="button"
