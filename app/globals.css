@@ -226,7 +226,7 @@
   }
 
   .media-container_cldImage {
-    @apply cursor-pointer overflow-hidden rounded-[32px] bg-white p-5 border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20;
+    @apply cursor-pointer overflow-hidden rounded-[32px] bg-white px-5 py-6 border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20;
   }
 
   .media-cldImage {
