@@ -60,7 +60,7 @@ const MediaUploader = ({
           <h3 className="media-header-text">Original</h3>
           {publicId ? (
             <>
-              <div className="cursor-pointer overflow-hidden rounded-[10px]">
+              <div className="media-container_cldImage">
                 <CldImage
                   width={getImageSize(type, image, "width")}
                   height={getImageSize(type, image, "height")}
