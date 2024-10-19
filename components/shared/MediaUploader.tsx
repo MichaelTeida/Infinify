@@ -1,7 +1,8 @@
 import { useToast } from "@/hooks/use-toast";
-import { CldUploadWidget } from "next-cloudinary";
-import Image from "next/image";
+import { CldImage, CldUploadWidget } from "next-cloudinary";
 import AddIcon from "@mui/icons-material/Add";
+import { dataUrl, getImageSize } from "@/lib/utils";
+import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 
 type MediaUploaderProps = {
   onValueChange: (value: string) => void;
@@ -27,6 +28,16 @@ const MediaUploader = ({
       duration: 4000,
       className: "media-success-toast",
     });
+
+    setImage((prevState: any) => ({
+      ...prevState,
+      publicId: result?.info?.publicId,
+      width: result?.info?.width,
+      height: result?.info?.height,
+      secureUrl: result?.info?.secureUrl,
+    }));
+
+    onValueChange(result?.info?.public_id);
   };
   const onUploadErrorHandler = () => {
     toast({
@@ -48,7 +59,19 @@ const MediaUploader = ({
         <div className="flex flex-col gap-4">
           <h3 className="media-header-text">Original</h3>
           {publicId ? (
-            <>IMAGE</>
+            <>
+              <div className="cursor-pointer overflow-hidden rounded-[10px]">
+                <CldImage
+                  width={getImageSize(type, image, "width")}
+                  height={getImageSize(type, image, "height")}
+                  src={publicId}
+                  alt={image}
+                  sizes={"(max-width: 767px) 90vw, 45vw"}
+                  placeholder={dataUrl as PlaceholderValue}
+                  className="media-cldImage"
+                />
+              </div>
+            </>
           ) : (
             <div onClick={() => open()} className="media-cta_container">
               <div className="media-cta_icon-box">

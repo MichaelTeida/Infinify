@@ -224,6 +224,10 @@
   .media-cta_text {
     @apply font-medium text-[13px] leading-[100%];
   }
+
+  .media-cldImage {
+    @apply h-fit min-h-72 w-full rounded-[32px] bg-white object-cover p-5;
+  }
 }
 
 /* Clerk overrides */
