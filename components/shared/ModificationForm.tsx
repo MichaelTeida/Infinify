@@ -131,7 +131,7 @@ const ModificationForm = ({
     setNewModification(null);
 
     startModification(async () => {
-      // await updateTokens(userId, tokenFee);
+      await updateTokens(userId, -1);
     });
   };
 
