@@ -68,3 +68,40 @@ declare type ModifiedImageProps = {
   modificationConfig: Transformations | null;
   hasDownload?: boolean;
 };
+
+declare type AddImageParams = {
+  image: {
+    publicId: string;
+    modificationType: string;
+    title: string;
+    width: number;
+    height: number;
+    aspectRatio: string | undefined;
+    prompt: string | undefined;
+    color: string | undefined;
+    config: any;
+    modificationURL: string;
+    secureURL: string;
+  };
+  path: string;
+  userId: string;
+};
+
+declare type UpdateImageParams = {
+  image: {
+    _id: string;
+    publicId: string;
+    modificationType: string;
+    title: string;
+    width: number;
+    height: number;
+    aspectRatio: string | undefined;
+    prompt: string | undefined;
+    color: string | undefined;
+    config: any;
+    modificationURL: string;
+    secureURL: string;
+  };
+  path: string;
+  userId: string;
+};
