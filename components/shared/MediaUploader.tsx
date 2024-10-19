@@ -61,7 +61,7 @@ const MediaUploader = ({
           <h3 className="media-header-text">Original</h3>
           {publicId ? (
             <>
-              <div className="media-container_cldImage">
+              <div className="media-cld-container_cldImage cursor-pointer">
                 <CldImage
                   width={getImageSize(type, image, "width")}
                   height={getImageSize(type, image, "height")}
@@ -69,16 +69,19 @@ const MediaUploader = ({
                   alt={image}
                   sizes={"(max-width: 767px) 90vw, 45vw"}
                   placeholder={dataUrl as PlaceholderValue}
-                  className="media-cldImage"
+                  className="media-cld_cldImage"
                 />
               </div>
             </>
           ) : (
-            <div onClick={() => open()} className="media-cta_container">
-              <div className="media-cta_icon-box">
+            <div
+              onClick={() => open()}
+              className="media-cld_container cursor-pointer"
+            >
+              <div className="media-cld_icon-box">
                 <AddIcon className="image-add_icon" />
               </div>
-              <p className="media-cta_text">Click to upload image</p>
+              <p className="media-cld_text">Click to upload image</p>
             </div>
           )}
         </div>
