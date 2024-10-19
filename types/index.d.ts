@@ -58,3 +58,13 @@ declare type ModificationTypeKey =
   | "remove"
   | "recolor"
   | "removeBackground";
+
+declare type ModifiedImageProps = {
+  image: any;
+  title: string;
+  type: string;
+  isModifying: boolean;
+  setIsModifying?: React.Dispatch<React.SetStateAction<boolean>>;
+  modificationConfig: Transformations | null;
+  hasDownload?: boolean;
+};

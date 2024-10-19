@@ -273,3 +273,8 @@
   font-size: 32px !important;
   @apply text-gray-800;
 }
+
+.image-syncIcon_icon {
+  font-size: 32px !important;
+  @apply text-gray-800;
+}

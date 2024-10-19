@@ -35,6 +35,7 @@ import { Button } from "@/components/ui/button";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import { updateTokens } from "@/lib/actions/user.actions";
 import MediaUploader from "@/components/shared/MediaUploader";
+import ModifiedImage from "@/components/shared/ModifiedImage";
 
 export const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -238,6 +239,14 @@ const ModificationForm = ({
               />
             )}
             name="publicId"
+          />
+          <ModifiedImage
+            image={image}
+            title={form.getValues().title}
+            type={type}
+            isModifying={isModifying}
+            setIsModifying={setIsModifying}
+            modificationConfig={modificationConfig}
           />
         </div>
 
