@@ -1,3 +1,4 @@
+"use client";
 import { useToast } from "@/hooks/use-toast";
 import { CldImage, CldUploadWidget } from "next-cloudinary";
 import AddIcon from "@mui/icons-material/Add";
