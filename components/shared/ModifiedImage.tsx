@@ -20,28 +20,7 @@ const ModifiedImage = ({
   return (
     <div className="flex flex-col gap-4">
       <h3 className="media-header-text">Modified</h3>
-      {/*{publicId ? (*/}
-      {/*  <>*/}
-      {/*    <div className="media-container_cldImage">*/}
-      {/*      <CldImage*/}
-      {/*        width={getImageSize(type, image, "width")}*/}
-      {/*        height={getImageSize(type, image, "height")}*/}
-      {/*        src={publicId}*/}
-      {/*        alt={image}*/}
-      {/*        sizes={"(max-width: 767px) 90vw, 45vw"}*/}
-      {/*        placeholder={dataUrl as PlaceholderValue}*/}
-      {/*        className="media-cldImage"*/}
-      {/*      />*/}
-      {/*    </div>*/}
-      {/*  </>*/}
-      {/*) : (*/}
-      {/*  <div onClick={() => open()} className="media-cta_container">*/}
-      {/*    <div className="media-cta_icon-box">*/}
-      {/*      <AddIcon className="image-add_icon" />*/}
-      {/*    </div>*/}
-      {/*    <p className="media-cta_text">Click to upload image</p>*/}
-      {/*  </div>*/}
-      {/*)}*/}
+
       {hasDownload && (
         <button onClick={() => downloadHandler} className="submit-button">
           <DownloadIcon className="image-download_icon" /> Download
