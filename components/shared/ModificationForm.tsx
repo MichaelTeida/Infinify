@@ -37,7 +37,8 @@ import { updateTokens } from "@/lib/actions/user.actions";
 import MediaUploader from "@/components/shared/MediaUploader";
 import ModifiedImage from "@/components/shared/ModifiedImage";
 import { getCldImageUrl } from "next-cloudinary";
-import { addImage } from "@/lib/actions/image.actions";
+import { addImage, updateImage } from "@/lib/actions/image.actions";
+import { useRouter } from "next/navigation";
 
 export const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -64,6 +65,7 @@ const ModificationForm = ({
   const [isModifying, setIsModifying] = useState(false);
   const [modificationConfig, setModificationConfig] = useState(config);
   const [isPending, startModification] = useTransition();
+  const router = useRouter();
 
   const initialValues =
     data && action === "Update"
@@ -116,11 +118,33 @@ const ModificationForm = ({
             userId,
             path: "/",
           });
+          if (newImage) {
+            form.reset();
+            setImage(data);
+            router.push(`/modifications/${newImage._id}`);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      if (action === "Update") {
+        try {
+          const updatedImage = await updateImage({
+            image: { ...imageData, _id: data._id },
+            userId,
+            path: `/modification/${data._id}`,
+          });
+          if (updatedImage) {
+            router.push(`/modifications/${updatedImage._id}`);
+          }
         } catch (error) {
           console.log(error);
         }
       }
     }
+
+    setIsSubmitting(false);
   }
 
   const onSelectFieldHandler = (
