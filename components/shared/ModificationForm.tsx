@@ -86,8 +86,6 @@ const ModificationForm = ({
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-
     setIsSubmitting(true);
 
     if (data || image) {
