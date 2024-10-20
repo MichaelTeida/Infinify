@@ -32,10 +32,10 @@ const MediaUploader = ({
 
     setImage((prevState: any) => ({
       ...prevState,
-      publicId: result?.info?.publicId,
+      publicId: result?.info?.public_id,
       width: result?.info?.width,
       height: result?.info?.height,
-      secureUrl: result?.info?.secureUrl,
+      secureUrl: result?.info?.secure_url,
     }));
 
     onValueChange(result?.info?.public_id);
