@@ -36,6 +36,8 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 import { updateTokens } from "@/lib/actions/user.actions";
 import MediaUploader from "@/components/shared/MediaUploader";
 import ModifiedImage from "@/components/shared/ModifiedImage";
+import { getCldImageUrl } from "next-cloudinary";
+import { addImage } from "@/lib/actions/image.actions";
 
 export const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -81,8 +83,44 @@ const ModificationForm = ({
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+
+    setIsSubmitting(true);
+
+    if (data || image) {
+      const modificationUrl = getCldImageUrl({
+        width: image?.width,
+        height: image?.height,
+        src: image?.publicId,
+        ...modificationConfig,
+      });
+
+      const imageData = {
+        title: values.title,
+        modificationType: type,
+        publicId: image?.publicId,
+        modificationURL: modificationUrl,
+        secureURL: image?.secureUrl,
+        config: modificationConfig,
+        width: image?.width,
+        height: image?.height,
+        aspectRatio: values.aspectRatio,
+        color: values.color,
+        prompt: values.prompt,
+      };
+      if (action === "Add") {
+        try {
+          const newImage = await addImage({
+            image: imageData,
+            userId,
+            path: "/",
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
   }
 
   const onSelectFieldHandler = (
