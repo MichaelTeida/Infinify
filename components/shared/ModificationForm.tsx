@@ -314,7 +314,9 @@ const ModificationForm = ({
           <Button
             type="button"
             className="submit-button-mobile md:submit-button"
-            disabled={isModifying || newModification === null}
+            // temporary fast primitive button block
+            // disabled={isModifying || newModification === null}
+            disabled
             onClick={onModifyHandler}
           >
             {isModifying ? "Modifying..." : "Apply modification"}
@@ -324,7 +326,9 @@ const ModificationForm = ({
           <Button
             type="submit"
             className="submit-button-mobile md:submit-button"
-            disabled={isSubmitting}
+            // temporary fast primitive button block
+            // disabled={isSubmitting}
+            disabled
           >
             {isSubmitting ? "Submitting..." : "Save image"}
             <KeyboardDoubleArrowRightIcon />
