@@ -26,6 +26,7 @@ import {
   aspectRatioOptions,
   defaultValues,
   modificationTypes,
+  tokenFee,
 } from "@/constants";
 import { CustomField } from "@/components/shared/CustomField";
 import { useState, useTransition } from "react";
@@ -39,6 +40,7 @@ import ModifiedImage from "@/components/shared/ModifiedImage";
 import { getCldImageUrl } from "next-cloudinary";
 import { addImage, updateImage } from "@/lib/actions/image.actions";
 import { useRouter } from "next/navigation";
+import { LackingTokensModal } from "@/components/shared/LackingTokensModal";
 
 export const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -198,6 +200,7 @@ const ModificationForm = ({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        {tokenBalance < Math.abs(tokenFee) && <LackingTokensModal />}
         <CustomField
           control={form.control}
           name="title"
