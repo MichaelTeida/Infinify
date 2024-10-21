@@ -24,7 +24,7 @@ export const navLinks = [
   },
   {
     label: "Image Generator",
-    route: "/generator/add/restore",
+    route: "/generator/add/image",
     icon: ImageIcon,
     available: false,
   },
