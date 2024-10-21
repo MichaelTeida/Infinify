@@ -75,6 +75,8 @@ export const navControlLinks = [
   },
 ];
 
+export const tokenFee = -1;
+
 export const modificationTypes = {
   upscale: {
     type: "upscale",
