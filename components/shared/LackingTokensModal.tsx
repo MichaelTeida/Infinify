@@ -25,7 +25,7 @@ export const LackingTokensModal = () => {
             Hold on! Your token balance has reached zero.
           </AlertDialogTitle>
           <AlertDialogDescription className="text-center pt-2 pb-3">
-            Don't worry - you can continue using our platform by purchasing
+            Don&apos;t worry - you can continue using our platform by purchasing
             additional tokens.
           </AlertDialogDescription>
         </AlertDialogHeader>
