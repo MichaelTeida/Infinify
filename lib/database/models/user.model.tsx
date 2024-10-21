@@ -19,7 +19,7 @@ const UserSchema = new Schema({
   firstName: { type: String },
   lastName: { type: String },
   planId: { type: Number, default: 1 },
-  tokenBalance: { type: Number, default: 5 },
+  tokenBalance: { type: Number, default: 1 },
 });
 
 const User = models?.User || model("User", UserSchema);
