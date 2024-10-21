@@ -80,8 +80,8 @@ declare type AddImageParams = {
     prompt: string | undefined;
     color: string | undefined;
     config: any;
-    modificationURL: string;
-    secureURL: string;
+    modificationUrl: string;
+    secureUrl: string;
   };
   path: string;
   userId: string;
@@ -99,8 +99,8 @@ declare type UpdateImageParams = {
     prompt: string | undefined;
     color: string | undefined;
     config: any;
-    modificationURL: string;
-    secureURL: string;
+    modificationUrl: string;
+    secureUrl: string;
   };
   path: string;
   userId: string;
