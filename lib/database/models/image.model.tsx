@@ -7,13 +7,13 @@ export interface ImageModel extends Document {
     firstName: string;
     lastName: string;
   };
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
   modificationType: string;
-  modificationUrl: string;
+  modificationUrl?: string;
   secureUrl: string;
   publicId: string;
-  config: object;
+  config?: object;
   width?: number;
   height?: number;
   aspectRatio?: string;
@@ -27,8 +27,8 @@ const ImageSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   modificationType: { type: String, required: true },
-  modificationUrl: { type: URL, required: true },
-  secureUrl: { type: URL, required: true },
+  modificationUrl: { type: String, required: true },
+  secureUrl: { type: String, required: true },
   publicId: { type: String, required: true },
   config: { type: Object },
   width: { type: Number },
