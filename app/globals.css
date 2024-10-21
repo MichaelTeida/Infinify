@@ -236,11 +236,11 @@
   /* TokensModal */
 
   .tokensModal-button {
-    @apply text-[16px] text-white flex justify-center items-center p-4 min-h-[56px] w-full gradient-background gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
+    @apply text-[16px] text-white flex justify-center items-center p-4 min-h-[56px] w-full gradient-background gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95;
   }
 
   .tokensModal-button-second {
-    @apply text-[16px] text-dark-400 flex justify-center items-center p-4 min-h-[56px] w-full gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
+    @apply text-[16px] text-dark-400 flex justify-center items-center p-4 min-h-[56px] w-full gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:brightness-[97%] !important;
   }
 }
 
