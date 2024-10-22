@@ -29,7 +29,7 @@ import {
   tokenFee,
 } from "@/constants";
 import { CustomField } from "@/components/shared/CustomField";
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { element } from "prop-types";
 import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -195,6 +195,12 @@ const ModificationForm = ({
       await updateTokens(userId, tokenFee);
     });
   };
+
+  useEffect(() => {
+    if (image && (type === "upscale" || type === "removeBackground")) {
+      setNewModification(modificationType.config);
+    }
+  }, [image, modificationType.config, type]);
 
   return (
     <Form {...form}>
