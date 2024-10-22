@@ -182,7 +182,6 @@ const ModificationForm = ({
     }, 1000);
   };
 
-  // TODO: Return to updateTokens
   const onModifyHandler = async () => {
     setIsModifying(true);
 
@@ -193,7 +192,7 @@ const ModificationForm = ({
     setNewModification(null);
 
     startModification(async () => {
-      await updateTokens(userId, -1);
+      await updateTokens(userId, tokenFee);
     });
   };
 
