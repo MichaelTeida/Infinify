@@ -197,7 +197,7 @@ const ModificationForm = ({
   };
 
   useEffect(() => {
-    if (image && (type === "upscale" || type === "removeBackground")) {
+    if (image && (type === "restore" || type === "removeBackground")) {
       setNewModification(modificationType.config);
     }
   }, [image, modificationType.config, type]);
