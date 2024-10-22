@@ -29,18 +29,6 @@ export const navLinks = [
     available: false,
   },
   {
-    label: "Image Upscale",
-    route: "/modifications/add/upscale",
-    icon: AutoFixHighIcon,
-    available: true,
-  },
-  {
-    label: "Background Remove",
-    route: "/modifications/add/removeBackground",
-    icon: WallpaperIcon,
-    available: true,
-  },
-  {
     label: "Generative Fill",
     route: "/modifications/add/fill",
     icon: SettingsOverscanIcon,
@@ -56,6 +44,18 @@ export const navLinks = [
     label: "Object Recolor",
     route: "/modifications/add/recolor",
     icon: PaletteIcon,
+    available: true,
+  },
+  {
+    label: "Image Restore",
+    route: "/modifications/add/restore",
+    icon: AutoFixHighIcon,
+    available: true,
+  },
+  {
+    label: "Background Remove",
+    route: "/modifications/add/removeBackground",
+    icon: WallpaperIcon,
     available: true,
   },
 ];
@@ -78,20 +78,6 @@ export const navControlLinks = [
 export const tokenFee = -1;
 
 export const modificationTypes = {
-  upscale: {
-    type: "upscale",
-    title: "Image Upscale",
-    description: "Enhance image quality by reducing noise and correcting flaws",
-    config: { upscale: true },
-    icon: AutoFixHighIcon,
-  },
-  removeBackground: {
-    type: "removeBackground",
-    title: "Background Remove",
-    description: "Easily remove background from your image",
-    config: { removeBackground: true },
-    icon: WallpaperIcon,
-  },
   fill: {
     type: "fill",
     title: "Generative Fill",
@@ -116,6 +102,20 @@ export const modificationTypes = {
       recolor: { prompt: "", to: "", multiple: true },
     },
     icon: PaletteIcon,
+  },
+  restore: {
+    type: "restore",
+    title: "Image Restore",
+    description: "Enhance image quality by reducing noise and correcting flaws",
+    config: { restore: true },
+    icon: AutoFixHighIcon,
+  },
+  removeBackground: {
+    type: "removeBackground",
+    title: "Background Remove",
+    description: "Easily remove background from your image",
+    config: { removeBackground: true },
+    icon: WallpaperIcon,
   },
 };
 
