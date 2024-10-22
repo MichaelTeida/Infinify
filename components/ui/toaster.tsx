@@ -10,6 +10,7 @@ import {
   ToastViewport,
 } from "@/components/ui/toast";
 
+// TODO: UUpdate the functionality to display used tokens only after modification is completed, instead of showing them immediately when a photo is uploaded.
 export function Toaster() {
   const { toasts } = useToast();
 
