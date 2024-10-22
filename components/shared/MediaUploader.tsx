@@ -52,7 +52,7 @@ const MediaUploader = ({
   return (
     <CldUploadWidget
       uploadPreset="infinify_preset"
-      options={{ multiple: false, resourceType: "image", maxFileSize: 5000000 }}
+      options={{ multiple: false, resourceType: "image", maxFileSize: 3000000 }}
       onSuccess={onUploadSuccessHandler}
       onError={onUploadErrorHandler}
     >
