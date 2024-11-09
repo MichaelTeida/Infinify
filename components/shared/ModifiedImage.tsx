@@ -15,20 +15,24 @@ const ModifiedImage = ({
   isModifying,
   setIsModifying,
   modificationConfig,
-  hasDownload = false,
+  hasDownload = image?.publicId && modificationConfig && !isModifying,
 }: ModifiedImageProps) => {
   const downloadHandler = () => {};
 
   return (
     <div className="flex flex-col gap-4">
-      <h3 className="media-header-text">Modified</h3>
+      <div className="flex justify-between items-center;">
+        <h3 className="media-header-text">Modified</h3>
 
-      {hasDownload && (
-        <button onClick={() => downloadHandler} className="submit-button">
-          <DownloadIcon className="image-download_icon" /> Download
-        </button>
-      )}
-
+        {hasDownload && (
+          <button
+            onClick={() => downloadHandler}
+            className="flex items-center px-5 gap-2 font-semibold text-dark-500"
+          >
+            <DownloadIcon className="image-download_icon" /> Download
+          </button>
+        )}
+      </div>
       {image?.publicId && modificationConfig ? (
         <div className="relative">
           <div className="media-cld-container_cldImage">
