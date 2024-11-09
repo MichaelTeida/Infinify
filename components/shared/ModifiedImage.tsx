@@ -27,7 +27,7 @@ const ModifiedImage = ({
         {hasDownload && (
           <button
             onClick={() => downloadHandler}
-            className="flex items-center px-5 gap-2 font-semibold text-dark-500"
+            className="flex items-center md:px-5 gap-2 font-semibold text-dark-500"
           >
             <DownloadIcon className="image-download_icon" /> Download
           </button>
