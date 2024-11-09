@@ -281,7 +281,7 @@
 
 .image-download_icon {
   font-size: 32px !important;
-  @apply text-gray-800;
+  @apply text-dark-500;
 }
 
 .image-syncIcon_icon {
