@@ -196,7 +196,7 @@
   /* ModificationForm Component */
 
   .media-upload-field {
-    @apply grid h-fit min-h-[200px] grid-cols-1 gap-5 py-4 md:grid-cols-2;
+    @apply grid h-fit min-h-[200px] grid-cols-1 gap-10 md:gap-5 py-4 md:grid-cols-2;
   }
 
   /* MediaUploader Component */
