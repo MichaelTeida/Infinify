@@ -59,7 +59,7 @@ export const formUrlQuery = ({
   return `${window.location.pathname}?${qs.stringify(params, { skipNulls: true })}`;
 };
 
-// GE IMAGE SIZE
+// GET IMAGE SIZE
 export type AspectRatioKey = keyof typeof aspectRatioOptions;
 export const getImageSize = (
   type: string,
