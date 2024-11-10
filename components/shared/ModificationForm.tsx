@@ -209,7 +209,7 @@ const ModificationForm = ({
         <CustomField
           control={form.control}
           name="title"
-          formLabel="Image"
+          formLabel="Image title"
           className="w-full"
           render={({ field }) => (
             <Input {...field} className="form-input_field" />
