@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { getImageById } from "@/lib/actions/image.actions";
 import { getImageSize } from "@/lib/utils";
 import React from "react";
+import ShareButton from "@/components/shared/ShareButton";
 
 const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
@@ -14,20 +15,71 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
 
   return (
     <>
-      <Header title={image.title} />
+      <div className="flex justify-between items-center">
+        <Header title={"Modification details"} />
+        <ShareButton />
+      </div>
 
-      <section className="mt-4 flex flex-wrap gap-4">
-        <div className="p-14-medium md:p-16-medium flex gap-2">
-          <p className="text-dark-600">Modification Type:</p>
-          <p className="capitalize text-purple-400">{image.modificationType}</p>
+      <section className="mt-4 flex flex-wrap flex-col md:flex-row gap-2 md:gap-4 media-cld-container_cldImage">
+        <div className="flex gap-2">
+          <p className="text-dark-600">Title:</p>
+          <p className="capitalize text-orange-600">{image.title}</p>
         </div>
+
+        {image.modificationType && (
+          <>
+            <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
+            <div className="flex gap-2">
+              <p className="text-dark-600">Type:</p>
+              <p className="capitalize text-orange-600">
+                {image.modificationType}
+              </p>
+            </div>
+          </>
+        )}
+
+        {image.createdAt && (
+          <>
+            <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
+            <div className="flex gap-2 ">
+              <p className="text-dark-600">Created at:</p>
+              <p className="capitalize text-orange-600">
+                {new Date(image.createdAt).toLocaleDateString()}
+              </p>
+            </div>
+          </>
+        )}
+
+        {image.author && (
+          <>
+            <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
+            <div className="flex gap-2 ">
+              <p className="text-dark-600">Author:</p>
+              <p className="text-orange-600">
+                {image.author.firstName} {image.author.lastName}
+              </p>
+            </div>
+          </>
+        )}
+
+        {image.width && image.height && (
+          <>
+            <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
+            <div className="flex gap-2 ">
+              <p className="text-dark-600">Size:</p>
+              <p className="text-orange-600">
+                {image.width}x{image.height} pixels
+              </p>
+            </div>
+          </>
+        )}
 
         {image.prompt && (
           <>
             <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
-            <div className="p-14-medium md:p-16-medium flex gap-2 ">
+            <div className="flex gap-2 ">
               <p className="text-dark-600">Prompt:</p>
-              <p className="capitalize text-purple-400">{image.prompt}</p>
+              <p className="capitalize text-orange-600">{image.prompt}</p>
             </div>
           </>
         )}
@@ -35,9 +87,9 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
         {image.color && (
           <>
             <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
-            <div className="p-14-medium md:p-16-medium flex gap-2">
+            <div className="flex gap-2">
               <p className="text-dark-600">Color:</p>
-              <p className="capitalize text-purple-400">{image.color}</p>
+              <p className="capitalize text-orange-600">{image.color}</p>
             </div>
           </>
         )}
@@ -45,9 +97,9 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
         {image.aspectRatio && (
           <>
             <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
-            <div className="p-14-medium md:p-16-medium flex gap-2">
+            <div className="flex gap-2">
               <p className="text-dark-600">Aspect Ratio:</p>
-              <p className="capitalize text-purple-400">{image.aspectRatio}</p>
+              <p className="capitalize text-orange-600">{image.aspectRatio}</p>
             </div>
           </>
         )}
