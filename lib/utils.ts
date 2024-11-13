@@ -109,3 +109,26 @@ export const deepMergeObjects = (obj1: any, obj2: any) => {
 
   return output;
 };
+
+// DOWNLOAD IMAGE
+export const download = (url: string, title: string) => {
+  if (!url) {
+    throw new Error("Image source URL is required.");
+  }
+
+  fetch(url)
+    .then((res) => res.blob())
+    .then((imageBlob) => {
+      const tempUrl = URL.createObjectURL(imageBlob);
+      const linkElement = document.createElement("a");
+      linkElement.href = tempUrl;
+      linkElement.download = title
+        ? `${title.trim().replace(/ /g, "_")}.png`
+        : "download.png";
+      document.body.appendChild(linkElement);
+      linkElement.click();
+      document.body.removeChild(linkElement);
+      URL.revokeObjectURL(tempUrl);
+    })
+    .catch((err) => console.error("Download error:", err));
+};
