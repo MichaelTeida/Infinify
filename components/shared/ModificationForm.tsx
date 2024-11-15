@@ -164,13 +164,15 @@ const ModificationForm = ({
     }, 1000);
   };
 
+  const [pendingImage, setPendingImage] = useState();
+
   const onSelectFieldHandler = (
     value: string,
     onChangeField: (value: string) => void,
   ) => {
     const imageSize = aspectRatioOptions[value as AspectRatioKey];
 
-    setImage((prevState: any) => ({
+    setPendingImage((prevState: any) => ({
       ...prevState,
       aspectRatio: imageSize.aspectRatio,
       width: imageSize.width,
@@ -183,6 +185,15 @@ const ModificationForm = ({
 
   const onModifyHandler = async () => {
     setIsModifying(true);
+    console.log(pendingImage);
+    console.log("------");
+    console.log(image);
+    setImage((prevState: any) => ({
+      ...prevState,
+      ...pendingImage,
+    }));
+
+    console.log(image);
 
     setModificationConfig(
       deepMergeObjects(newModification, modificationConfig),
