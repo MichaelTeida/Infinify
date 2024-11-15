@@ -68,31 +68,33 @@ const ModifiedImage = ({
         )}
       </div>
       {image?.publicId && modificationConfig ? (
-        <div className="relative">
+        <div>
           <div className="media-cld-container_cldImage">
-            <CldImage
-              width={getImageSize(type, image, "width")}
-              height={getImageSize(type, image, "height")}
-              src={image?.publicId}
-              alt={image.title}
-              sizes={"(max-width: 767px) 90vw, 45vw"}
-              placeholder={dataUrl as PlaceholderValue}
-              className="media-cld_cldImage"
-              onLoad={() => {
-                setIsModifying && setIsModifying(false);
-              }}
-              onError={() => {
-                debounce(() => {
+            <div className="relative">
+              <CldImage
+                width={getImageSize(type, image, "width")}
+                height={getImageSize(type, image, "height")}
+                src={image?.publicId}
+                alt={image.title}
+                sizes={"(max-width: 767px) 90vw, 45vw"}
+                placeholder={dataUrl as PlaceholderValue}
+                className="media-cld_cldImage"
+                onLoad={() => {
                   setIsModifying && setIsModifying(false);
-                }, 7000)();
-              }}
-              {...modificationConfig}
-            />
-            {!isModifying && (
-              <div className="absolute flex items-center justify-center inset-0">
-                <SyncIcon className="animate-spin transform rotate-180 image-syncIcon_icon" />
-              </div>
-            )}
+                }}
+                onError={() => {
+                  debounce(() => {
+                    setIsModifying && setIsModifying(false);
+                  }, 7000)();
+                }}
+                {...modificationConfig}
+              />
+              {!isModifying && (
+                <div className="modifying-layer">
+                  <SyncIcon className="animate-spin duration-700 rotate-180 image-syncIcon_icon" />
+                </div>
+              )}
+            </div>
           </div>
         </div>
       ) : (
