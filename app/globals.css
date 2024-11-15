@@ -242,6 +242,12 @@
   .tokensModal-button-second {
     @apply text-[16px] text-dark-400 flex justify-center items-center p-4 min-h-[56px] w-full gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:brightness-[97%] !important;
   }
+
+  /* ModifiedImage */
+
+  .modifying-layer {
+    @apply absolute flex items-center justify-center inset-0 gradient-background animate-pulse opacity-80;
+  }
 }
 
 /* Clerk overrides */
