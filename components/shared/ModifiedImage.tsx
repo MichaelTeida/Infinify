@@ -38,6 +38,9 @@ const ModifiedImage = ({
 
     setIsDownloading(true);
 
+    console.log(modificationConfig);
+    console.log(image);
+
     download(
       getCldImageUrl({
         width: image?.width,
