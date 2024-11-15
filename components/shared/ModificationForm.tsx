@@ -59,7 +59,7 @@ const ModificationForm = ({
 }: ModificationFormProps) => {
   const modificationType = modificationTypes[type];
   const [image, setImage] = useState(data);
-  const [pendingImage, setPendingImage] = useState();
+  const [pendingImage, setPendingImage] = useState<any>({});
   const [newModification, setNewModification] = useState<Modifications | null>(
     null,
   );
@@ -189,9 +189,7 @@ const ModificationForm = ({
     console.log(image);
     setImage((prevState: any) => ({
       ...prevState,
-      aspectRatio: pendingImage.aspectRatio,
-      width: pendingImage.width,
-      height: pendingImage.height,
+      ...pendingImage,
     }));
 
     console.log(image);
