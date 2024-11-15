@@ -88,8 +88,8 @@ const ModifiedImage = ({
               }}
               {...modificationConfig}
             />
-            {isModifying && (
-              <div className="flex items-center justify-center absolute inset-0">
+            {!isModifying && (
+              <div className="absolute flex items-center justify-center inset-0">
                 <SyncIcon className="animate-spin transform rotate-180 image-syncIcon_icon" />
               </div>
             )}
