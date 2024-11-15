@@ -105,7 +105,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
         )}
       </section>
 
-      <section className="mt-8">
+      <section className="mt-8 space-y-8">
         <div className="media-upload-field">
           <div className="flex flex-col gap-4">
             <h3 className="media-header-text">Original</h3>
@@ -131,10 +131,14 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
         </div>
 
         {userId === image.author.clerkId && (
-          <div className="mt-4 space-y-4">
-            <Button asChild type="button" className="submit-button capitalize">
+          <div className="flex flex-col md:flex-row md:justify-end gap-4">
+            <Button
+              asChild
+              type="button"
+              className="submit-button-mobile md:submit-button"
+            >
               <Link href={`/modifications/${image._id}/update`}>
-                Update Image
+                Update image
               </Link>
             </Button>
           </div>
