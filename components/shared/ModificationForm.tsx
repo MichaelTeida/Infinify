@@ -227,6 +227,7 @@ const ModificationForm = ({
                 onValueChange={(value) =>
                   onSelectFieldHandler(value, field.onChange)
                 }
+                value={field.value}
               >
                 <SelectTrigger className="form-select_field">
                   <SelectValue placeholder="Choose size" />
