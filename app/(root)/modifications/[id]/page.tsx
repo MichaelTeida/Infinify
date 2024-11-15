@@ -8,6 +8,7 @@ import { getImageById } from "@/lib/actions/image.actions";
 import { getImageSize } from "@/lib/utils";
 import React from "react";
 import ShareButton from "@/components/shared/ShareButton";
+import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
 
 const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
@@ -141,6 +142,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
                 Update image
               </Link>
             </Button>
+            <DeleteConfirmation imageId={image._id} />
           </div>
         )}
       </section>
