@@ -124,7 +124,7 @@ export const download = (url: string, title: string) => {
       linkElement.href = tempUrl;
       linkElement.download = title
         ? `${title.trim().replace(/ /g, "_")}.png`
-        : "download.png";
+        : "modified_image_from_infinify.png";
       document.body.appendChild(linkElement);
       linkElement.click();
       document.body.removeChild(linkElement);
