@@ -215,6 +215,7 @@ const ModificationForm = ({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         {tokenBalance < Math.abs(tokenFee) && <LackingTokensModal />}
+        <LackingTokensModal />
         <CustomField
           control={form.control}
           name="title"
