@@ -100,6 +100,10 @@
     @apply bg-gradient-to-r from-orange-600 via-orange-500 to-orange-400;
   }
 
+  .gradient-background-alert {
+    @apply bg-gradient-to-r from-red-700 to-red-500;
+  }
+
   /* Sidebar component */
   .sidebar {
     @apply hidden h-screen w-80 bg-orange-50 shadow-md shadow-orange-200/50 lg:flex;
@@ -193,6 +197,14 @@
     @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-full gap-1 gradient-background font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
   }
 
+  .submit-button-alert {
+    @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-56 gap-1 gradient-background-alert font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
+  }
+
+  .submit-button-alert-mobile {
+    @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-full gap-1 gradient-background-alert font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
+  }
+
   /* ModificationForm Component */
 
   .media-upload-field {
@@ -233,13 +245,17 @@
     @apply h-fit min-h-72 w-full object-cover;
   }
 
-  /* TokensModal */
+  /* Modal */
 
-  .tokensModal-button {
+  .modal-button {
     @apply text-[16px] text-white flex justify-center items-center p-4 min-h-[56px] w-full gradient-background gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95;
   }
 
-  .tokensModal-button-second {
+  .modal-button-second {
+    @apply text-[16px] text-dark-400 flex justify-center items-center p-4 min-h-[56px] w-56 gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:brightness-[97%] !important;
+  }
+
+  .modal-button-second-alert {
     @apply text-[16px] text-dark-400 flex justify-center items-center p-4 min-h-[56px] w-full gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:brightness-[97%] !important;
   }
 
