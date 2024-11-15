@@ -285,7 +285,7 @@
 }
 
 .image-syncIcon_icon {
-  font-size: 32px !important;
+  font-size: 64px !important;
   @apply text-gray-800;
 }
 
