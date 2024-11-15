@@ -89,7 +89,7 @@ const ModifiedImage = ({
                 }}
                 {...modificationConfig}
               />
-              {!isModifying && (
+              {isModifying && (
                 <div className="modifying-layer">
                   <SyncIcon className="animate-spin duration-700 rotate-180 image-syncIcon_icon" />
                 </div>
