@@ -31,13 +31,13 @@ export const LackingTokensModal = () => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel
-            className="tokensModal-button-second"
+            className="modal-button-second"
             onClick={() => router.push("/profile")}
           >
             Maybe later
           </AlertDialogCancel>
           <AlertDialogAction
-            className="tokensModal-button"
+            className="modal-button"
             onClick={() => router.push("/tokens")}
           >
             Get tokens
