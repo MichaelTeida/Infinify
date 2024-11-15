@@ -146,23 +146,6 @@ const ModificationForm = ({
     setIsSubmitting(false);
   }
 
-  const onSelectFieldHandler = (
-    value: string,
-    onChangeField: (value: string) => void,
-  ) => {
-    const imageSize = aspectRatioOptions[value as AspectRatioKey];
-
-    setImage((prevState: any) => ({
-      ...prevState,
-      aspectRatio: imageSize.aspectRatio,
-      width: imageSize.width,
-      height: imageSize.height,
-    }));
-    setNewModification(modificationType.config);
-
-    return onChangeField(value);
-  };
-
   const onInputChangeHandler = (
     fieldName: string,
     value: string,
@@ -179,6 +162,23 @@ const ModificationForm = ({
       }));
       return onChangeField(value);
     }, 1000);
+  };
+
+  const onSelectFieldHandler = (
+    value: string,
+    onChangeField: (value: string) => void,
+  ) => {
+    const imageSize = aspectRatioOptions[value as AspectRatioKey];
+
+    setImage((prevState: any) => ({
+      ...prevState,
+      aspectRatio: imageSize.aspectRatio,
+      width: imageSize.width,
+      height: imageSize.height,
+    }));
+    setNewModification(modificationType.config);
+
+    return onChangeField(value);
   };
 
   const onModifyHandler = async () => {
