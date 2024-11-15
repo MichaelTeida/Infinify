@@ -38,9 +38,6 @@ const ModifiedImage = ({
 
     setIsDownloading(true);
 
-    console.log(modificationConfig);
-    console.log(image);
-
     download(
       getCldImageUrl({
         width: image?.width,
@@ -87,13 +84,13 @@ const ModifiedImage = ({
               onError={() => {
                 debounce(() => {
                   setIsModifying && setIsModifying(false);
-                }, 7000);
+                }, 7000)();
               }}
               {...modificationConfig}
             />
             {isModifying && (
-              <div>
-                <SyncIcon className="animate-spin image-syncIcon_icon" />
+              <div className="flex items-center justify-center absolute inset-0">
+                <SyncIcon className="animate-spin transform rotate-180 image-syncIcon_icon" />
               </div>
             )}
           </div>
