@@ -59,6 +59,7 @@ const ModificationForm = ({
 }: ModificationFormProps) => {
   const modificationType = modificationTypes[type];
   const [image, setImage] = useState(data);
+  const [pendingImage, setPendingImage] = useState();
   const [newModification, setNewModification] = useState<Modifications | null>(
     null,
   );
@@ -164,8 +165,6 @@ const ModificationForm = ({
     }, 1000);
   };
 
-  const [pendingImage, setPendingImage] = useState();
-
   const onSelectFieldHandler = (
     value: string,
     onChangeField: (value: string) => void,
@@ -190,7 +189,9 @@ const ModificationForm = ({
     console.log(image);
     setImage((prevState: any) => ({
       ...prevState,
-      ...pendingImage,
+      aspectRatio: pendingImage.aspectRatio,
+      width: pendingImage.width,
+      height: pendingImage.height,
     }));
 
     console.log(image);
