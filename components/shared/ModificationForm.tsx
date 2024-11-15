@@ -30,7 +30,6 @@ import {
 } from "@/constants";
 import { CustomField } from "@/components/shared/CustomField";
 import { useEffect, useState, useTransition } from "react";
-import { element } from "prop-types";
 import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
