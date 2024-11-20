@@ -105,3 +105,19 @@ declare type UpdateImageParams = {
   path: string;
   userId: string;
 };
+
+declare type CheckoutSaleParams = {
+  amount: number;
+  buyerId: string;
+  plan: string;
+  tokens: number;
+};
+
+declare type CreateSaleParams = {
+  amount: number;
+  stripeId: string;
+  tokens: number;
+  plan: string;
+  buyerId: string;
+  createdAt: Date;
+};
