@@ -1,6 +1,6 @@
 import { Schema, model, models } from "mongoose";
 
-const TransactionSchema = new Schema({
+const SaleSchema = new Schema({
   buyer: {
     type: Schema.Types.ObjectId,
     ref: "User",
@@ -26,7 +26,6 @@ const TransactionSchema = new Schema({
   },
 });
 
-const Transaction =
-  models?.Transaction || model("Transaction", TransactionSchema);
+const Sale = models?.Sale || model("Sale", SaleSchema);
 
-export default Transaction;
+export default Sale;
