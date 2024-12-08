@@ -1,3 +1,5 @@
+import StarIcon from "@mui/icons-material/Star";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import HomeIcon from "@mui/icons-material/Home";
 import ChatIcon from "@mui/icons-material/Chat";
 import ImageIcon from "@mui/icons-material/Image";
@@ -8,6 +10,11 @@ import SearchOffIcon from "@mui/icons-material/SearchOff";
 import PaletteIcon from "@mui/icons-material/Palette";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import CheckIcon from "@mui/icons-material/Check";
+import CloseIcon from "@mui/icons-material/Close";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 
 export const navLinks = [
   {
@@ -153,3 +160,114 @@ export const aspectRatioOptions = {
     height: 1778,
   },
 };
+
+export const plans = [
+  {
+    _id: 1,
+    name: "Free",
+    icon: {
+      main: AccountBalanceWalletIcon,
+      iconIncluded: CheckIcon,
+      iconNotIncluded: CloseIcon,
+    },
+    price: 0,
+    tokens: 8,
+    inclusions: [
+      {
+        label: "8 free tokens",
+        isIncluded: true,
+      },
+      {
+        label: "Standard access to services",
+        isIncluded: true,
+      },
+      {
+        label: "Priority support assistance",
+        isIncluded: false,
+      },
+      {
+        label: "Early access features",
+        isIncluded: false,
+      },
+    ],
+  },
+  {
+    _id: 2,
+    name: "Pro kit",
+    icon: {
+      main: StarIcon,
+      iconIncluded: CheckIcon,
+      iconNotIncluded: CloseIcon,
+    },
+    price: 20,
+    tokens: 80,
+    inclusions: [
+      {
+        label: "80 tokens",
+        isIncluded: true,
+      },
+      {
+        label: "Access to all services",
+        isIncluded: true,
+      },
+      {
+        label: "Priority support assistance",
+        isIncluded: true,
+      },
+      {
+        label: "Early access features",
+        isIncluded: false,
+      },
+    ],
+  },
+  {
+    _id: 3,
+    name: "Premium kit",
+    icon: {
+      main: RocketLaunchIcon,
+      iconIncluded: CheckIcon,
+      iconNotIncluded: CloseIcon,
+    },
+    price: 80,
+    tokens: 640,
+    inclusions: [
+      {
+        label: "640 tokens",
+        isIncluded: true,
+      },
+      {
+        label: "Access to all services",
+        isIncluded: true,
+      },
+      {
+        label: "Priority support assistance",
+        isIncluded: true,
+      },
+      {
+        label: "Early access features",
+        isIncluded: true,
+      },
+    ],
+  },
+];
+
+export const faqsPlan = [
+  {
+    icon: HelpOutlineIcon,
+    question: "What are tokens?",
+    answer:
+      "Tokens are our platform's currency for accessing advanced AI features and generating creative content.",
+  },
+  {
+    icon: AutoAwesomeIcon,
+    question: "How do tokens work?",
+    answer:
+      "Each token represents a unit of AI processing power. Different tasks consume different amounts of tokens.",
+  },
+  {
+    icon: TrendingUpIcon,
+    question: "Can I upgrade later?",
+    answer:
+      "Absolutely! You can upgrade or purchase additional tokens at any time.",
+  },
+];
