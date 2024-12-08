@@ -189,6 +189,7 @@
     @apply rounded-full border-2 font-semibold text-[16px] leading-[140%] border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20 text-gray-700 disabled:opacity-100 h-[45px] md:h-[55px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important;
   }
 
+  /* Buttons */
   .submit-button {
     @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-56 gap-1 gradient-background font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
   }
@@ -230,7 +231,7 @@
   }
 
   .media-cld_icon-box {
-    @apply rounded-full bg-white p-5 drop-shadow shadow-orange-900/20;
+    @apply transition-all duration-300 ease-in-out transform hover:-translate-y-2 rounded-full bg-white p-5 drop-shadow shadow-orange-900/20;
   }
 
   .media-cld_text {
@@ -263,6 +264,65 @@
 
   .modifying-layer {
     @apply absolute flex items-center justify-center inset-0 gradient-background animate-pulse opacity-80;
+  }
+
+  /* Tokens */
+
+  .pricing-grid {
+    @apply mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .pricing-card {
+    @apply bg-white shadow-xl p-6 transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl rounded-[28px] overflow-hidden border-2 border-orange-200/25 hover:border-orange-400;
+  }
+
+  .pricing-card-popular {
+    @apply border-orange-400/50 relative overflow-hidden;
+  }
+
+  .pricing-card-popular::before {
+    content: "Popular";
+    @apply absolute border-2 font-semibold tracking-wider top-0 right-0 bg-orange-500 text-white px-8 py-1 transform rotate-45 translate-x-1/4 translate-y-1/2;
+  }
+
+  .pricing-icon {
+    @apply text-orange-600 mb-4 text-[50px] !important;
+  }
+
+  .pricing-card-title {
+    @apply text-xl font-bold text-orange-600 mb-2;
+  }
+
+  .pricing-card-price {
+    @apply text-4xl font-extrabold text-gray-900 mb-4;
+  }
+
+  .pricing-card-tokens {
+    @apply text-gray-600 mb-6 font-semibold;
+  }
+
+  .pricing-card-inclusions_list {
+    @apply space-y-4 mb-8 text-gray-700;
+  }
+
+  .pricing-card-inclusions_list-item {
+    @apply flex items-center space-x-3;
+  }
+
+  .pricing-faq {
+    @apply mt-16 text-center p-6 sm:p-8 lg:p-10 bg-white shadow-lg rounded-[28px] w-full border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20;
+  }
+
+  .pricing-faq-title {
+    @apply text-2xl font-bold text-center mb-8 text-gray-800;
+  }
+
+  .pricing-faq-grid {
+    @apply grid md:grid-cols-3 gap-6;
+  }
+
+  .pricing-faq-grid_element {
+    @apply bg-orange-50/50 p-6 rounded-[28px] transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:bg-orange-100/50 transition-all;
   }
 }
 
