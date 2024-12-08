@@ -4,7 +4,7 @@ const Homepage = () => {
   return (
     <div className="flex flex-col justify-between">
       <div className="flex-grow flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
-        <div className="text-center p-6 sm:p-8 lg:p-10 bg-white shadow-lg rounded-[32px] max-w-3xl w-full border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20">
+        <div className="text-center p-6 sm:p-8 lg:p-10 bg-white shadow-lg rounded-[28px] max-w-3xl w-full border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
             Welcome to Infinify
           </h1>
