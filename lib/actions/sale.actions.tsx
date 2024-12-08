@@ -27,7 +27,7 @@ export async function checkoutTokens(sale: CheckoutSaleParams) {
     ],
     metadata: {
       plan: sale.plan,
-      credits: sale.tokens,
+      tokens: sale.tokens,
       buyerId: sale.buyerId,
     },
     mode: "payment",
