@@ -20,7 +20,7 @@ const Tokens = async () => {
         description="Choose the perfect kit to fuel your creativity"
       />
 
-      <div className="pricing-grid">
+      <section className="pricing-grid">
         {plans.map((plan) => (
           <div
             key={plan.name}
@@ -75,9 +75,9 @@ const Tokens = async () => {
             </div>
           </div>
         ))}
-      </div>
+      </section>
 
-      <div className="pricing-faq">
+      <section className="pricing-faq">
         <h2 className="pricing-faq-title">Frequently Asked Questions</h2>
         <div className="pricing-faq-grid">
           {faqsPlan.map((faq, index) => (
@@ -92,7 +92,7 @@ const Tokens = async () => {
             </div>
           ))}
         </div>
-      </div>
+      </section>
     </>
   );
 };
