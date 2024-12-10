@@ -404,7 +404,7 @@
   }
 
   .gallery-pagination-button {
-    @apply py-2 w-32 sm:w-48 md:w-36 text-white gradient-background disabled:opacity-50 rounded-[28px];
+    @apply py-2 w-32 sm:w-48 md:w-36 min-h-[56px] text-white gradient-background disabled:opacity-50 rounded-[28px];
   }
 
   .gallery-pagination-button_text {
