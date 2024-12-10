@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,6 +12,11 @@ import { Button } from "@/components/ui/button";
 
 const NavMobile = () => {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
     <header className="header">
@@ -26,7 +31,7 @@ const NavMobile = () => {
       <nav className="header-content">
         <SignedIn>
           <UserButton afterSignOutUrl="/" />
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger>
               <MenuIcon className="nav-menu_icon" />
             </SheetTrigger>
