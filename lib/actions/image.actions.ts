@@ -90,7 +90,7 @@ export async function getImageById(imageId: string) {
 
 // GET IMAGES BY USER
 export async function getUserImages({
-  limit = 1,
+  limit = 9,
   page = 1,
   userId,
 }: {
