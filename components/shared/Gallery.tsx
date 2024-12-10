@@ -61,31 +61,29 @@ export const Gallery = ({
         </div>
       )}
 
-      {totalPages > 1 && (
-        <Pagination>
-          <PaginationContent className="gallery-pagination">
-            <Button
-              disabled={Number(page) <= 1}
-              className="gallery-pagination-button"
-              onClick={() => onPageChange("prev")}
-            >
-              <PaginationPrevious className="gallery-pagination-button_text" />
-            </Button>
+      <Pagination>
+        <PaginationContent className="gallery-pagination">
+          <Button
+            disabled={Number(page) <= 1}
+            className="gallery-pagination-button"
+            onClick={() => onPageChange("prev")}
+          >
+            <PaginationPrevious className="gallery-pagination-button_text" />
+          </Button>
 
-            <p className="gallery-pagination-counter">
-              {page} / {totalPages}
-            </p>
+          <p className="gallery-pagination-counter">
+            {page} / {totalPages}
+          </p>
 
-            <Button
-              className="gallery-pagination-button"
-              onClick={() => onPageChange("next")}
-              disabled={Number(page) >= totalPages}
-            >
-              <PaginationNext className="gallery-pagination-button_text" />
-            </Button>
-          </PaginationContent>
-        </Pagination>
-      )}
+          <Button
+            className="gallery-pagination-button"
+            onClick={() => onPageChange("next")}
+            disabled={Number(page) >= totalPages}
+          >
+            <PaginationNext className="gallery-pagination-button_text" />
+          </Button>
+        </PaginationContent>
+      </Pagination>
     </>
   );
 };
