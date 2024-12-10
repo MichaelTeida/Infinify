@@ -153,7 +153,7 @@
 
   /* NavMobile / Header Component */
   .header {
-    @apply flex justify-between fixed h-16 w-full border-b-2 border-orange-50 bg-white p-5 lg:hidden;
+    @apply flex justify-between fixed z-50 h-16 w-full border-b-2 shadow-md border-orange-50 bg-white p-5 lg:hidden;
   }
 
   .header-content {
@@ -323,6 +323,92 @@
 
   .pricing-faq-grid_element {
     @apply bg-orange-50/50 p-6 rounded-[28px] transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:bg-orange-100/50 transition-all;
+  }
+
+  /*Profile*/
+
+  .profile-grid {
+    @apply grid md:grid-cols-2 gap-8;
+  }
+
+  .profile-grid-card {
+    @apply flex items-center p-6 transition-all duration-300 ease-in-out transform hover:-translate-y-2 drop-shadow-md shadow-sm hover:shadow-xl bg-white shadow-lg rounded-[28px] w-full border-2 border-orange-200/25 shadow-orange-200/20;
+  }
+
+  .profile-grid-card_token-container {
+    @apply rounded-full p-3 mr-4;
+  }
+
+  .profile-grid-card_token-icon {
+    @apply w-8 h-8 text-[30px] !important;
+  }
+
+  .profile-grid-card-title {
+    @apply text-gray-500 font-medium mb-1;
+  }
+
+  .profile-grid-card-value {
+    @apply text-3xl font-bold;
+  }
+
+  .profile-token-banner {
+    @apply gradient-background text-white p-6 rounded-[28px] flex flex-col md:flex-row items-center justify-between drop-shadow-md shadow-sm gap-4;
+  }
+
+  .profile-token-banner-icon {
+    @apply text-[45px] !important;
+  }
+
+  .profile-token-banner-content {
+    @apply flex items-center space-x-6;
+  }
+
+  .profile-details {
+    @apply p-6 drop-shadow-md shadow-sm bg-white shadow-lg rounded-[28px] w-full border-2 border-orange-200/25 shadow-orange-200/20 text-gray-800;
+  }
+
+  .profile-details span {
+    @apply text-gray-500;
+  }
+
+  .gallery-title {
+    @apply font-bold text-[18px] md:text-[24px] text-gray-800;
+  }
+
+  .gallery-grid {
+    @apply grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .gallery-grid-card {
+    @apply rounded-[28px] overflow-hidden shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl border-2 border-orange-200/25 hover:border-orange-400;
+  }
+
+  .gallery-grid-card_image {
+    @apply w-full h-52 object-cover;
+  }
+
+  .gallery-grid-card_description {
+    @apply flex justify-between items-center p-4 bg-gray-50;
+  }
+
+  .gallery-grid-card_description-text {
+    @apply text-base font-semibold text-gray-700 truncate;
+  }
+
+  .gallery-pagination {
+    @apply flex justify-between md:justify-center items-center w-full gap-3 md:gap-4;
+  }
+
+  .gallery-pagination-counter {
+    @apply text-lg font-medium text-dark-600 whitespace-nowrap;
+  }
+
+  .gallery-pagination-button {
+    @apply py-2 w-32 sm:w-48 md:w-36 text-white gradient-background disabled:opacity-50 rounded-[28px];
+  }
+
+  .gallery-pagination-button_text {
+    @apply text-base bg-transparent !important;
   }
 }
 
