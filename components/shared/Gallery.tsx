@@ -33,7 +33,13 @@ export const Gallery = ({
 
   // PAGINATION HANDLER
   const onPageChange = (action: string) => {
-    const pageValue = action === "next" ? Number(page) + 1 : Number(page) - 1;
+    let pageValue = action === "next" ? Number(page) + 1 : Number(page) - 1;
+
+    if (pageValue < 1) {
+      pageValue = 1;
+    } else if (pageValue > totalPages) {
+      pageValue = totalPages;
+    }
 
     const newUrl = formUrlQuery({
       searchParams: searchParams.toString(),
