@@ -243,7 +243,7 @@
   }
 
   .media-cld_cldImage {
-    @apply h-fit min-h-72 w-full object-cover;
+    @apply h-fit w-full object-cover;
   }
 
   /* Modal */
