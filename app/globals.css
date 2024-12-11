@@ -371,6 +371,10 @@
     @apply p-6 drop-shadow-md shadow-sm bg-white shadow-lg rounded-[28px] w-full border-2 border-orange-200/25 shadow-orange-200/20 text-gray-800;
   }
 
+  .profile-details-title {
+    @apply font-bold text-[18px] md:text-[24px] mb-4 text-gray-800;
+  }
+
   .profile-details span {
     @apply text-gray-500;
   }

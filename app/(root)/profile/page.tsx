@@ -116,7 +116,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
 
         {/* Additional Account Information */}
         <div className="profile-details">
-          <h3 className="text-xl font-semibold mb-4 ">Profile details</h3>
+          <h3 className="profile-details-title ">Profile details</h3>
           <div className="space-y-4">
             <div className="flex items-center">
               <CalendarTodayOutlinedIcon className="mr-3" />
