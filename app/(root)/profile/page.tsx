@@ -2,7 +2,6 @@ import React from "react";
 import { auth } from "@clerk/nextjs";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { AlertCircle } from "lucide-react";
 import TollIcon from "@mui/icons-material/Toll";
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -25,19 +24,14 @@ const formatAccountCreationDate = (createdAt: Date) => {
 
 // Low Balance Notification Component
 const LowBalanceNotification = ({ balance }: { balance: number }) => {
-  if (balance > 3) return null;
+  if (balance > 5) return null;
 
   return (
-    <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 flex items-center">
-      <AlertCircle className="text-yellow-500 mr-3" />
-      <div>
-        <p className="text-yellow-700 font-semibold">Low balance alert</p>
-        <p className="text-yellow-600">
-          {balance === 0
-            ? "You've run out of tokens. Top up now to continue using our services!"
-            : `You have only ${balance} tokens left. Consider topping up soon.`}
-        </p>
-      </div>
+    <div className="p-4 flex flex-row gap-2 rounded-[28px] bg-yellow-50 border-l-4 border-yellow-400 overflow-hidden shadow-sm drop-shadow-md transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl">
+      <span className="text-yellow-700 font-semibold">Alert:</span>
+      <span className="text-yellow-600">
+        {balance === 0 ? "You've run out of tokens." : "Low token balance."}
+      </span>
     </div>
   );
 };
@@ -82,9 +76,10 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
               : "Profile"
         }
       />
-      {/* Low Balance Notification */}
-      <LowBalanceNotification balance={user.tokenBalance} />
-      <section className="flex flex-col gap-8 mt-8">
+      <section className="profile-container">
+        {/* Low Balance Notification */}
+        <LowBalanceNotification balance={user.tokenBalance} />
+
         <div className="profile-grid">
           {/* Tokens available card */}
           <div className="profile-grid-card">

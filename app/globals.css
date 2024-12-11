@@ -327,8 +327,12 @@
 
   /*Profile*/
 
+  .profile-container {
+    @apply flex flex-col gap-5 md:gap-8 mt-8;
+  }
+
   .profile-grid {
-    @apply grid md:grid-cols-2 gap-8;
+    @apply grid md:grid-cols-2 gap-5 md:gap-8;
   }
 
   .profile-grid-card {
@@ -372,7 +376,7 @@
   }
 
   .gallery-title {
-    @apply font-bold text-[18px] md:text-[24px] text-gray-800;
+    @apply font-bold text-[18px] md:text-[24px] mt-2 text-gray-800;
   }
 
   .gallery-grid {
