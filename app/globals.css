@@ -375,8 +375,8 @@
     @apply font-bold text-[18px] md:text-[24px] mb-4 text-gray-800;
   }
 
-  .profile-details span {
-    @apply text-gray-500;
+  .profile-details-text {
+    @apply text-dark-500;
   }
 
   .gallery-title {
