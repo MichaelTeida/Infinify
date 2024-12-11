@@ -53,12 +53,12 @@ export const Gallery = ({
   return (
     <>
       <h2 className="gallery-title">Recent edits:</h2>
-      {hasSearch && <Search />}
+      {/*{hasSearch && <Search />}*/}
 
       {images.length > 0 ? (
         <ul className="gallery-grid">
-          {images.map((image) => (
-            <Card image={image} key={image._id} />
+          {images.map((image, key: number) => (
+            <Card image={image} key={image._id as string} />
           ))}
         </ul>
       ) : (
