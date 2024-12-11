@@ -119,12 +119,16 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
           <h3 className="profile-details-title ">Profile details</h3>
           <div className="space-y-4">
             <div className="flex items-center">
-              <CalendarTodayOutlinedIcon className="mr-3" />
-              <span>Created: {formatAccountCreationDate(user.createdAt)}</span>
+              <CalendarTodayOutlinedIcon className="profile-details-text mr-3" />
+              <span className="profile-details-text">
+                Created: {formatAccountCreationDate(user.createdAt)}
+              </span>
             </div>
             <div className="flex items-center">
-              <MailOutlineIcon className="mr-3" />
-              <span>Email: {user.email || "Not provided"}</span>
+              <MailOutlineIcon className="profile-details-text mr-3" />
+              <span className="profile-details-text">
+                Email: {user.email || "Not provided"}
+              </span>
             </div>
           </div>
         </div>
