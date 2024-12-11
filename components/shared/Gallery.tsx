@@ -42,7 +42,7 @@ export const Gallery = ({
     }
 
     const newUrl = formUrlQuery({
-      searchParams: searchParams.toString(),
+      searchParams: new URLSearchParams(searchParams.toString()),
       key: "page",
       value: pageValue,
     });
