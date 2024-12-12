@@ -128,7 +128,7 @@
   /* Nav elements */
 
   .nav-element {
-    @apply flex justify-center items-center w-full font-semibold leading-tight whitespace-nowrap rounded-full bg-cover transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
+    @apply flex justify-center items-center w-full font-semibold leading-tight whitespace-nowrap rounded-full bg-cover transition-all active:scale-95 active:brightness-90 hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
   }
 
   .nav-element-active {
@@ -191,19 +191,19 @@
 
   /* Buttons */
   .submit-button {
-    @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-56 gap-1 gradient-background font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
+    @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-56 gap-1 gradient-background font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md active:scale-95 active:brightness-90;
   }
 
   .submit-button-mobile {
-    @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-full gap-1 gradient-background font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
+    @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-full gap-1 gradient-background font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md active:scale-95 active:brightness-90;
   }
 
   .submit-button-alert {
-    @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-56 gap-1 gradient-background-alert font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
+    @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-56 gap-1 gradient-background-alert font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md active:scale-95 active:brightness-90;
   }
 
   .submit-button-alert-mobile {
-    @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-full gap-1 gradient-background-alert font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md;
+    @apply text-[16px] flex justify-center items-center p-4 min-h-[56px] w-full gap-1 gradient-background-alert font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md active:scale-95 active:brightness-90;
   }
 
   /* ModificationForm Component */
@@ -249,15 +249,15 @@
   /* Modal */
 
   .modal-button {
-    @apply text-[16px] text-white flex justify-center items-center p-4 min-h-[56px] w-full gradient-background gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95;
+    @apply text-[16px] text-white flex justify-center items-center p-4 min-h-[56px] w-full gradient-background gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 active:scale-95 active:brightness-90;
   }
 
   .modal-button-second {
-    @apply text-[16px] text-dark-400 flex justify-center items-center p-4 min-h-[56px] w-56 gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:brightness-[97%] !important;
+    @apply text-[16px] text-dark-400 flex justify-center items-center p-4 min-h-[56px] w-56 gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:brightness-[97%] active:scale-95 active:brightness-90 !important;
   }
 
   .modal-button-second-alert {
-    @apply text-[16px] text-dark-400 flex justify-center items-center p-4 min-h-[56px] w-full gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:brightness-[97%] !important;
+    @apply text-[16px] text-dark-400 flex justify-center items-center p-4 min-h-[56px] w-full gap-1 bg-orange-50 font-bold whitespace-nowrap rounded-full transition-all hover:brightness-[97%] active:scale-95 active:brightness-90 !important;
   }
 
   /* ModifiedImage */
