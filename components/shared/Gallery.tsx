@@ -52,7 +52,7 @@ export const Gallery = ({
 
   return (
     <>
-      <h2 className="gallery-title">Recent edits:</h2>
+      <h2 className="gallery-title">Recent modifications:</h2>
       {/*{hasSearch && <Search />}*/}
 
       {images.length > 0 ? (
