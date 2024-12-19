@@ -9,6 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { navControlLinks, navLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import LoginIcon from "@mui/icons-material/Login";
 
 const NavMobile = () => {
   const pathname = usePathname();
@@ -108,8 +109,11 @@ const NavMobile = () => {
         </SignedIn>
 
         <SignedOut>
-          <Button asChild className="gradient-background bg-cover">
-            <Link href="/sign-in">Login</Link>
+          <Button asChild className="header-content-button">
+            <Link className="header-content-button_content" href="/sign-in">
+              <LoginIcon />
+              Login
+            </Link>
           </Button>
         </SignedOut>
       </nav>
