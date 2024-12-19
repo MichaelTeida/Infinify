@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { auth } from "@clerk/nextjs";
 import WavingHandOutlinedIcon from "@mui/icons-material/WavingHandOutlined";
-import RocketLaunchOutlinedIcon from "@mui/icons-material/RocketLaunchOutlined";
 import { modificationTypes, navLinks } from "@/constants";
 
 const FeatureCard = ({
@@ -13,8 +12,8 @@ const FeatureCard = ({
   className = "",
 }: {
   Icon: React.ElementType;
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   route: string;
   className?: string;
 }) => (
