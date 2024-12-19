@@ -6,7 +6,7 @@ import Image from "next/image";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { navControlLinks, navLinks } from "@/constants";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import LoginIcon from "@mui/icons-material/Login";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -84,9 +84,14 @@ const Sidebar = () => {
             </ul>
           </SignedIn>
           <SignedOut>
-            <Button asChild className="gradient-background bg-cover">
-              <Link href="/sign-in">Login</Link>
-            </Button>
+            <ul className="sidebar-nav_list">
+              <li className="nav-element group nav-element-active">
+                <Link className="nav-link" href="/sign-in">
+                  <LoginIcon />
+                  Login
+                </Link>
+              </li>
+            </ul>
           </SignedOut>
         </nav>
       </div>
