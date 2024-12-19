@@ -16,7 +16,7 @@ const Tokens = async () => {
   return (
     <>
       <Header
-        title="Token kits (TEST MODE)"
+        title="Token kits"
         description="Choose the perfect kit to fuel your creativity"
       />
 
