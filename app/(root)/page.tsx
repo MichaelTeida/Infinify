@@ -1,38 +1,93 @@
 import React from "react";
+import Link from "next/link";
+import { auth } from "@clerk/nextjs";
+import WavingHandOutlinedIcon from "@mui/icons-material/WavingHandOutlined";
+import RocketLaunchOutlinedIcon from "@mui/icons-material/RocketLaunchOutlined";
+import { modificationTypes, navLinks } from "@/constants";
 
-const Homepage = () => {
+const FeatureCard = ({
+  Icon,
+  title,
+  description,
+  route,
+  className = "",
+}: {
+  Icon: React.ElementType;
+  title: string;
+  description: string;
+  route: string;
+  className?: string;
+}) => (
+  <Link className={`homepage-feature-card ${className}`} href={route} passHref>
+    <Icon className="homepage-feature-icon" />
+    <h3 className="homepage-feature-title">{title}</h3>
+    <p className="homepage-feature-description">{description}</p>
+  </Link>
+);
+
+const HomePage = async () => {
+  const { userId } = auth();
+
   return (
-    <div className="flex flex-col justify-between">
-      <div className="flex-grow flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
-        <div className="text-center p-6 sm:p-8 lg:p-10 bg-white shadow-lg rounded-[28px] max-w-3xl w-full border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
-            Welcome to Infinify
+    <>
+      {/* Hero Section */}
+      <section className="homepage-hero">
+        <div className="max-w-6xl text-center flex flex-col items-center">
+          <h1 className="homepage-hero-title">
+            Transform Your Images with <span>Infinify AI</span>
           </h1>
-          <p className="text-lg sm:text-xl text-gray-500 mb-6 sm:mb-8">
-            Unlock the potential of AI with our suite of powerful tools,
-            including image generation, background removal, and more.
+          <p className="homepage-hero-description">
+            Unleash the power of artificial intelligence to edit, enhance, and
+            reimagine your images with just a few clicks.
           </p>
-          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="#"
-              className="gradient-background text-white p-3 sm:p-4 min-h-[48px] sm:min-h-[56px] w-full sm:w-56 rounded-full font-bold hover:bg-orange-100 transition-all text-sm sm:text-base"
-            >
-              Explore Features
-            </a>
-            <a
-              href="/sign-up"
-              className="bg-gray-800 text-white p-3 sm:p-4 min-h-[48px] sm:min-h-[56px] w-full sm:w-56 rounded-full font-bold hover:bg-gray-600 transition-all text-sm sm:text-base"
-            >
-              Get Started
-            </a>
+
+          {!userId ? (
+            <Link href="/sign-in" className="homepage-cta-button">
+              <WavingHandOutlinedIcon /> Get Started for Free
+            </Link>
+          ) : (
+            <Link href="/profile" className="homepage-cta-button ">
+              Go to Dashboard
+            </Link>
+          )}
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-14">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="page-title text-center mb-6">
+            Powerful AI Image Editing Tools
+          </h2>
+          <div className="homepage-features-grid">
+            {navLinks
+              .filter(({ available }) => available) // Only show available links
+              .map(({ label, route }) => {
+                const {
+                  icon: Icon,
+                  title,
+                  description,
+                } = Object.values(modificationTypes).find(
+                  (mod) => mod.title === label,
+                ) || {};
+                if (!Icon) return null; // Skip if no corresponding modification type
+
+                return (
+                  <FeatureCard
+                    key={label}
+                    Icon={Icon}
+                    title={title}
+                    description={description}
+                    route={route}
+                    className="bg-white"
+                  />
+                );
+              })}
           </div>
         </div>
-      </div>
-      <div className="flex items-center justify-center p-4 text-xs text-gray-400 italic">
-        This is a temporary homepage
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 
-export default Homepage;
+export default HomePage;
