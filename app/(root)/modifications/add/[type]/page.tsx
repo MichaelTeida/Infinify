@@ -4,18 +4,19 @@ import { modificationTypes } from "@/constants";
 import ModificationForm from "@/components/shared/ModificationForm";
 import { getUserById } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 const AddModificationTypePage = async ({
   params: { type },
 }: SearchParamProps) => {
-  const { userId } = auth();
+  const authResponse = await auth(); // Await the auth() call
+
   const modification =
     modificationTypes[type as keyof typeof modificationTypes];
 
-  if (!userId) redirect("/sign-in");
+  if (!authResponse?.userId) redirect("/sign-in");
 
-  const user = await getUserById(userId);
+  const user = await getUserById(authResponse.userId);
 
   return (
     <>

@@ -1,3 +1,4 @@
+// components/shared/Checkout.tsx
 "use client";
 
 import { loadStripe } from "@stripe/stripe-js";
@@ -45,7 +46,7 @@ const Checkout = ({
         className: "error-toast",
       });
     }
-  }, []);
+  }, [toast]); // Add toast to the dependency array
 
   const onCheckout = async () => {
     const sale = {
@@ -55,11 +56,21 @@ const Checkout = ({
       buyerId,
     };
 
-    await checkoutTokens(sale);
+    try {
+      await checkoutTokens(sale);
+    } catch (error: any) {
+      toast({
+        title: "Something went wrong!",
+        description: error.message || "Failed to initiate checkout.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
-    <form action={onCheckout} method="POST">
+    <form action={onCheckout}>
+      {" "}
+      {/* Removed method="POST" */}
       <section>
         <Button type="submit" role="link" className="submit-button-mobile">
           Buy tokens

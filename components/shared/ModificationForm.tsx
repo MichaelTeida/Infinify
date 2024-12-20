@@ -184,15 +184,10 @@ const ModificationForm = ({
 
   const onModifyHandler = async () => {
     setIsModifying(true);
-    console.log(pendingImage);
-    console.log("------");
-    console.log(image);
     setImage((prevState: any) => ({
       ...prevState,
       ...pendingImage,
     }));
-
-    console.log(image);
 
     setModificationConfig(
       deepMergeObjects(newModification, modificationConfig),

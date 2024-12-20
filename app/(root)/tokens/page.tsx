@@ -1,5 +1,6 @@
 import React from "react";
-import { SignedIn, auth } from "@clerk/nextjs";
+import { SignedIn } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Header from "@/components/shared/Header";
 import { Button } from "@/components/ui/button";
@@ -8,10 +9,11 @@ import { getUserById } from "@/lib/actions/user.actions";
 import Checkout from "@/components/shared/Checkout";
 
 const Tokens = async () => {
-  const { userId } = auth();
+  const authResponse = await auth(); // Await the auth() call
 
-  if (!userId) redirect("/sign-in");
-  const user = await getUserById(userId);
+  if (!authResponse?.userId) redirect("/sign-in");
+
+  const user = await getUserById(authResponse.userId);
 
   return (
     <>
