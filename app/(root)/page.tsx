@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import WavingHandOutlinedIcon from "@mui/icons-material/WavingHandOutlined";
 import { modificationTypes, navLinks } from "@/constants";
 
@@ -25,7 +25,7 @@ const FeatureCard = ({
 );
 
 const HomePage = async () => {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   return (
     <>

@@ -1,5 +1,5 @@
 import React from "react";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import TollIcon from "@mui/icons-material/Toll";
@@ -58,11 +58,11 @@ const TokenTopUpBanner = () => {
 
 const ProfilePage = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
-  const { userId } = auth();
+  const authResponse = await auth();
 
-  if (!userId) redirect("/sign-in");
+  if (!authResponse?.userId) redirect("/sign-in");
 
-  const user = await getUserById(userId);
+  const user = await getUserById(authResponse.userId);
   const images = await getUserImages({ page, userId: user._id });
 
   return (

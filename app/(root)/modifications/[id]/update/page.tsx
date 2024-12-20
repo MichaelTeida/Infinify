@@ -3,16 +3,16 @@ import Header from "@/components/shared/Header";
 import ModificationForm from "@/components/shared/ModificationForm";
 import { getUserById } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { modificationTypes } from "@/constants";
 import { getImageById } from "@/lib/actions/image.actions";
 
 const UpdateModificationPage = async ({ params: { id } }: SearchParamProps) => {
-  const { userId } = auth();
+  const authResponse = await auth(); // Await the auth() call
 
-  if (!userId) redirect("/sign-in");
+  if (!authResponse?.userId) redirect("/sign-in");
 
-  const user = await getUserById(userId);
+  const user = await getUserById(authResponse.userId);
   const image = await getImageById(id);
 
   const modification =
