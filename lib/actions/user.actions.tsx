@@ -18,24 +18,24 @@ const handleDatabaseAction = async (action: Action) => {
   }
 };
 
-export const createUser = (user: CreateUserParams) =>
+export const createUser = async (user: CreateUserParams) =>
   handleDatabaseAction(() => User.create(user));
 
-export const getUserById = (userId: string) =>
+export const getUserById = async (userId: string) =>
   handleDatabaseAction(() => {
     const user = User.findOne({ clerkId: userId });
     if (!user) throw new Error("User not found");
     return user;
   });
 
-export const updateUser = (clerkId: string, user: UpdateUserParams) =>
+export const updateUser = async (clerkId: string, user: UpdateUserParams) =>
   handleDatabaseAction(() => {
     const updatedUser = User.findOneAndUpdate({ clerkId }, user, { new: true });
     if (!updatedUser) throw new Error("User update failed");
     return updatedUser;
   });
 
-export const deleteUser = (clerkId: string) =>
+export const deleteUser = async (clerkId: string) =>
   handleDatabaseAction(async () => {
     const userToDelete = await User.findOne({ clerkId });
     if (!userToDelete) throw new Error("User not found");
@@ -44,7 +44,7 @@ export const deleteUser = (clerkId: string) =>
     return deletedUser || null;
   });
 
-export const updateTokens = (userId: string, tokensFee: number) =>
+export const updateTokens = async (userId: string, tokensFee: number) =>
   handleDatabaseAction(() => {
     const updatedUserTokens = User.findOneAndUpdate(
       { _id: userId },
