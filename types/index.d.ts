@@ -23,8 +23,8 @@ declare type UpdateUserParams = {
 };
 
 declare type SearchParamProps = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ id: string; type: ModificationTypeKey }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 declare type ModificationFormProps = {
@@ -65,7 +65,7 @@ declare type ModifiedImageProps = {
   type: string;
   isModifying: boolean;
   setIsModifying?: React.Dispatch<React.SetStateAction<boolean>>;
-  modificationConfig: Transformations | null;
+  modificationConfig: Modifications | null;
   hasDownload?: boolean;
 };
 
