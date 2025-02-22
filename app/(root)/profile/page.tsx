@@ -56,7 +56,8 @@ const TokenTopUpBanner = () => {
   );
 };
 
-const ProfilePage = async ({ searchParams }: SearchParamProps) => {
+const ProfilePage = async (props: SearchParamProps) => {
+  const searchParams = await props.searchParams;
   const page = Number(searchParams?.page) || 1;
   const authResponse = await auth();
 

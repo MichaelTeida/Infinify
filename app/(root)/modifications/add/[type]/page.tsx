@@ -6,9 +6,13 @@ import { getUserById } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 
-const AddModificationTypePage = async ({
-  params: { type },
-}: SearchParamProps) => {
+const AddModificationTypePage = async (props: SearchParamProps) => {
+  const params = await props.params;
+
+  const {
+    type
+  } = params;
+
   const authResponse = await auth(); // Await the auth() call
 
   const modification =
