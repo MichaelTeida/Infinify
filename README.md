@@ -15,12 +15,14 @@ Infinify is a Software as a Service (SaaS) application that leverages advanced A
 
 ## Technologies
 
-- Next.js
-- React
-- Tailwind CSS
-- TypeScript
-- Clerk
+- Next.js 15.1.7
+- React 19.0.0
+- Tailwind CSS 3.3.0
+- TypeScript 5
+- Clerk (nextjs) 6.12.0
 - shadcn/ui
+- Stripe 17.6.0
+- mongodb 6.13.1
 - Material Icons
 
 
