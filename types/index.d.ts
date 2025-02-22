@@ -23,7 +23,7 @@ declare type UpdateUserParams = {
 };
 
 declare type SearchParamProps = {
-  params: { id: string; type: ModificationTypeKey };
+  params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
