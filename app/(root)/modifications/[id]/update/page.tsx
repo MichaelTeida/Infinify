@@ -10,9 +10,7 @@ import { getImageById } from "@/lib/actions/image.actions";
 const UpdateModificationPage = async (props: SearchParamProps) => {
   const params = await props.params;
 
-  const {
-    id
-  } = params;
+  const { id } = params;
 
   const authResponse = await auth(); // Await the auth() call
 

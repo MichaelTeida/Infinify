@@ -9,9 +9,7 @@ import { auth } from "@clerk/nextjs/server";
 const AddModificationTypePage = async (props: SearchParamProps) => {
   const params = await props.params;
 
-  const {
-    type
-  } = params;
+  const { type } = params;
 
   const authResponse = await auth(); // Await the auth() call
 
