@@ -23,7 +23,8 @@ Infinify is a Software as a Service (SaaS) application that leverages advanced A
 - shadcn/ui
 - Stripe 17.6.0
 - mongodb 6.13.1
-- Material Icons
+- mongoose 8.10.1
+- Material Icons 6.4.5
 
 
 Rest of the description coming soon...
