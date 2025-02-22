@@ -11,11 +11,9 @@ import ShareButton from "@/components/shared/ShareButton";
 import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
 
 const ImageDetails = async (props: SearchParamProps) => {
-  const params = await props.params;
+  const params = props.params;
 
-  const {
-    id
-  } = params;
+  const { id } = params;
 
   const { userId } = await auth();
   const image = await getImageById(id);
