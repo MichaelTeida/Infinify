@@ -1,6 +1,5 @@
 import React from "react";
-import { Control } from "react-hook-form";
-import { z } from "zod";
+import { Control, FieldValues, Path } from "react-hook-form";
 
 import {
   FormField,
@@ -10,23 +9,21 @@ import {
   FormLabel,
 } from "../ui/form";
 
-import { formSchema } from "./ModificationForm";
-
-type CustomFieldProps = {
-  control: Control<z.infer<typeof formSchema>> | undefined;
+type CustomFieldProps<T extends FieldValues> = {
+  control: Control<T>;
   render: (props: { field: any }) => React.ReactNode;
-  name: keyof z.infer<typeof formSchema>;
+  name: Path<T>;
   formLabel?: string;
   className?: string;
 };
 
-export const CustomField = ({
+export const CustomField = <T extends FieldValues>({
   control,
   render,
   name,
   formLabel,
   className,
-}: CustomFieldProps) => {
+}: CustomFieldProps<T>) => {
   return (
     <FormField
       control={control}
