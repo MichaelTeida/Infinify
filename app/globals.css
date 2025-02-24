@@ -93,7 +93,7 @@
 
 @layer utilities {
   .wrapper {
-    @apply max-w-6xl mx-auto px-5 p-10 md:px-10 w-full text-dark-500;
+    @apply max-w-6xl mx-auto px-5 p-10 md:px-10 w-full text-dark-500 flex flex-col min-h-full;
   }
 
   .gradient-background {
@@ -195,6 +195,24 @@
 
   .input_field {
     @apply rounded-full border-2 font-semibold text-[16px] leading-[140%] border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20 text-gray-700 disabled:opacity-100 h-[45px] md:h-[55px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important;
+  }
+
+  /* Chat */
+
+  .form-chat-messages {
+    @apply flex flex-col w-full flex-grow h-80 overflow-y-auto bg-background rounded-[28px] px-4 py-3 border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20;
+  }
+
+  .form-chat-container-input {
+    @apply flex w-full items-center bg-background rounded-full box-content border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20 h-[45px] md:h-[55px];
+  }
+
+  .form-chat-container-input_field {
+    @apply rounded-full border-0 font-semibold text-[16px] leading-[140%] text-gray-700 disabled:opacity-100 h-[41px] md:h-[51px] px-4 py-3 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+  }
+
+  .form-chat-container-input_button {
+    @apply text-[16px] flex justify-center items-center min-h-[44px] mr-2 mt-[1px] w-32 p-4 gradient-background font-bold whitespace-nowrap rounded-[28px] transition-all hover:bg-orange-100 hover:shadow-inner hover:brightness-95 hover:shadow-md active:scale-95 active:brightness-90;
   }
 
   /* Buttons */

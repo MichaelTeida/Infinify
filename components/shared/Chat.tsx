@@ -37,7 +37,10 @@ const Chat = ({ tokenBalance }: any) => {
   return (
     <>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-8 flex flex-col flex-grow min-h-0"
+        >
           {tokenBalance < Math.abs(tokenFee) && <LackingTokensModal />}
           <CustomField
             control={form.control}
@@ -64,7 +67,27 @@ const Chat = ({ tokenBalance }: any) => {
             )}
           />
 
-          <div className="border p-4 mt-4">Messages here (placeholder)</div>
+          <div className="form-chat-messages">
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+            <div>Message here (placeholder)</div>
+          </div>
 
           <CustomField
             control={form.control}
@@ -72,9 +95,15 @@ const Chat = ({ tokenBalance }: any) => {
             formLabel="Message"
             className="w-full"
             render={({ field }) => (
-              <div className={"flex"}>
-                <Input {...field} className="form-input_field rounded-xs" />
-                <Button className={"submit-button"}> Send </Button>
+              <div className="form-chat-container-input">
+                <Input
+                  {...field}
+                  autoComplete="off"
+                  className="form-chat-container-input_field"
+                />
+                <Button className={"form-chat-container-input_button"}>
+                  Run
+                </Button>
               </div>
             )}
           />

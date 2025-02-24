@@ -18,7 +18,7 @@ const ChatPage = async () => {
           "Engage in interactive conversations powered by artificial intelligence."
         }
       />
-      <section className="mt-8">
+      <section className="mt-8 flex flex-col flex-grow">
         <Chat tokenBalance={user.tokenBalance} />
       </section>
     </>
