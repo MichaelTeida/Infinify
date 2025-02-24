@@ -27,7 +27,7 @@ export const navLinks = [
     label: "AI Chat",
     route: "/chat",
     icon: ChatIcon,
-    available: false,
+    available: true,
   },
   {
     label: "Image Generator",

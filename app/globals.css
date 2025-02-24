@@ -88,12 +88,12 @@
 }
 
 .root-container {
-  @apply mt-10 flex-1 overflow-auto py-8 lg:py-10 lg:mt-0 lg:max-h-screen;
+  @apply mt-10 flex-1 overflow-y-scroll py-8 lg:py-10 lg:mt-0 lg:max-h-screen;
 }
 
 @layer utilities {
   .wrapper {
-    @apply max-w-6xl mx-auto px-5 p-10 md:px-10 w-full text-dark-500 flex flex-col min-h-full;
+    @apply max-w-6xl mx-auto px-5 p-10 md:px-10 w-full text-dark-500 flex flex-col min-h-full overflow-hidden;
   }
 
   .gradient-background {
