@@ -24,16 +24,10 @@ export const navLinks = [
     available: true,
   },
   {
-    label: "AI Chat",
-    route: "/chat",
-    icon: ChatIcon,
+    label: "Background Remove",
+    route: "/modifications/add/removeBackground",
+    icon: WallpaperIcon,
     available: true,
-  },
-  {
-    label: "Image Generator",
-    route: "/generator/add/image",
-    icon: ImageIcon,
-    available: false,
   },
   {
     label: "Generative Fill",
@@ -60,10 +54,16 @@ export const navLinks = [
     available: true,
   },
   {
-    label: "Background Remove",
-    route: "/modifications/add/removeBackground",
-    icon: WallpaperIcon,
+    label: "AI Chat",
+    route: "/chat",
+    icon: ChatIcon,
     available: true,
+  },
+  {
+    label: "Image Generator",
+    route: "/generator/add/image",
+    icon: ImageIcon,
+    available: false,
   },
 ];
 

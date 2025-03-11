@@ -37,6 +37,7 @@ declare type ModificationFormProps = {
 };
 
 declare type Modifications = {
+  removeBackground?: boolean;
   fillBackground?: boolean;
   remove?: {
     prompt: string;
@@ -49,15 +50,14 @@ declare type Modifications = {
     multiple?: boolean;
   };
   restore?: boolean;
-  removeBackground?: boolean;
 };
 
 declare type ModificationTypeKey =
+  | "removeBackground"
   | "fill"
   | "remove"
   | "recolor"
-  | "restore"
-  | "removeBackground";
+  | "restore";
 
 declare type ModifiedImageProps = {
   image: any;
