@@ -203,6 +203,14 @@
     @apply flex flex-col w-full flex-grow h-80 overflow-y-auto bg-background rounded-[28px] px-4 py-3 border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20;
   }
 
+  .form-chat-messages_message-chat {
+    @apply flex flex-col px-4 py-3 my-2;
+  }
+
+  .form-chat-messages_message-user {
+    @apply flex bg-gray-100 self-end rounded-[28px] px-4 py-3 my-2 border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20;
+  }
+
   .form-chat-container-input {
     @apply flex w-full items-center bg-background rounded-full box-content border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20 h-[45px] md:h-[55px];
   }
@@ -541,4 +549,8 @@
 .tokensModal-dollar_icon {
   font-size: 32px !important;
   @apply text-gray-800;
+}
+
+.messages_icon {
+  font-size: 16px !important;
 }
