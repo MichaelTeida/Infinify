@@ -36,7 +36,7 @@ const Chat = ({ tokenBalance }: any) => {
     defaultValues: {
       message: "",
       model: "google/gemini-2.0-flash-lite-preview-02-05:free",
-      stream: false,
+      stream: true,
     },
   });
 
@@ -62,11 +62,11 @@ const Chat = ({ tokenBalance }: any) => {
         );
       }
 
-      const data = await response.json();
-      console.log("API response: ", data);
-
-      if (data.success && values.stream) {
+      if (values.stream) {
       } else {
+        const data = await response.json();
+        console.log("API response: ", data);
+
         setMessages((prev) => [
           ...prev,
           { role: "chat", content: data.response },
