@@ -10,7 +10,7 @@ Infinify is a Software as a Service (SaaS) application that leverages advanced A
 - 🟢 **Object Recolor**: Change the color of objects in your images using AI.
 - 🟢 **Image Restore**: Enhance the resolution of your images with AI.
 - 🟢 **Token System**: Purchase and use tokens to access the various SaaS features.
-- 🔴 **AI Chat**: Engage in interactive conversations powered by artificial intelligence. - _in progress..._
+- 🟠 **AI Chat**: Engage in interactive conversations powered by artificial intelligence. - _in progress..._
 - 🔴 **Image Generator**: Generate images based on your descriptions using AI. - _in progress..._
 
 ## Technologies

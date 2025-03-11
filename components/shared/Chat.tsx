@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { tokenFee } from "@/constants";
 import { LackingTokensModal } from "@/components/shared/LackingTokensModal";
 import { Form } from "@/components/ui/form";
@@ -17,22 +17,67 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import ChatMessages from "@/components/shared/ChatMessages";
 
 export const formSchema = z.object({
   message: z.string().min(1).max(1000), // Min. 1 character
-  model: z.string().optional(),
+  model: z.string(),
+  stream: z.boolean().optional(),
 });
 
 const Chat = ({ tokenBalance }: any) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [messages, setMessages] = useState<{ role: string; content: string }[]>(
+    [],
+  );
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       message: "",
-      model: "",
+      model: "google/gemini-2.0-flash-lite-preview-02-05:free",
+      stream: false,
     },
   });
 
-  const onSubmit = () => {};
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
+    setMessages((prev) => [...prev, { role: "user", content: values.message }]);
+    form.reset({ message: "" });
+
+    try {
+      const response = await fetch(`/api/webhooks/openai`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("API Error:", errorData);
+        throw new Error(
+          `HTTP error! status: ${response.status}, message: ${errorData.error || "Unknown error"}`,
+        );
+      }
+
+      const data = await response.json();
+      console.log("API response: ", data);
+
+      if (data.success && values.stream) {
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          { role: "chat", content: data.response },
+        ]);
+      }
+    } catch (error: any) {
+      console.error("Fetch error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -67,27 +112,7 @@ const Chat = ({ tokenBalance }: any) => {
             )}
           />
 
-          <div className="form-chat-messages">
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-            <div>Message here (placeholder)</div>
-          </div>
+          <ChatMessages messages={messages} />
 
           <CustomField
             control={form.control}
@@ -98,10 +123,14 @@ const Chat = ({ tokenBalance }: any) => {
               <div className="form-chat-container-input">
                 <Input
                   {...field}
+                  placeholder="Type your message..."
                   autoComplete="off"
                   className="form-chat-container-input_field"
                 />
-                <Button className={"form-chat-container-input_button"}>
+                <Button
+                  className={"form-chat-container-input_button"}
+                  disabled={isSubmitting}
+                >
                   Run
                 </Button>
               </div>
