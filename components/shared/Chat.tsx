@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { tokenFee } from "@/constants";
+import React, { useRef, useState, useTransition } from "react";
+import { tokenFeeChat } from "@/constants";
 import { LackingTokensModal } from "@/components/shared/LackingTokensModal";
 import { Form } from "@/components/ui/form";
 import { z } from "zod";
@@ -18,6 +18,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import ChatMessages from "@/components/shared/ChatMessages";
+import { updateTokens } from "@/lib/actions/user.actions";
+import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 
 export const formSchema = z.object({
   message: z.string().min(1).max(1000), // Min. 1 character
@@ -25,19 +28,27 @@ export const formSchema = z.object({
   stream: z.boolean().optional(),
 });
 
-const Chat = ({ tokenBalance }: any) => {
+const Chat = ({
+  userId,
+  tokenBalance,
+}: {
+  userId: string;
+  tokenBalance: any;
+}) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [messages, setMessages] = useState<{ role: string; content: string }[]>(
     [],
   );
   const responseRef = useRef("");
+  const [, startTransition] = useTransition();
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       message: "",
       model: "google/gemini-2.0-flash-lite-preview-02-05:free",
-      stream: true,
+      stream: false,
     },
   });
 
@@ -63,6 +74,18 @@ const Chat = ({ tokenBalance }: any) => {
           `HTTP error! status: ${response.status}, message: ${errorData.error || "Unknown error"}`,
         );
       }
+
+      startTransition(async () => {
+        await updateTokens(userId, tokenFeeChat);
+        toast({
+          title: "Message sent successfully",
+          description: `${tokenFeeChat} token was used`,
+          duration: 2000,
+          className: cn(
+            "top-4 right-4 flex fixed max-w-[300px] sm:max-w-[420px] sm:top-4 sm:right-7 media-success-toast",
+          ),
+        });
+      });
 
       if (values.stream) {
         const reader = response.body?.getReader();
@@ -111,7 +134,7 @@ const Chat = ({ tokenBalance }: any) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 flex flex-col flex-grow min-h-0"
         >
-          {tokenBalance < Math.abs(tokenFee) && <LackingTokensModal />}
+          {tokenBalance < Math.abs(tokenFeeChat) && <LackingTokensModal />}
           <CustomField
             control={form.control}
             name="model"
