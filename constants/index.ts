@@ -83,6 +83,7 @@ export const navControlLinks = [
 ];
 
 export const tokenFee = -1;
+export const tokenFeeChat = -0.04;
 
 export const modificationTypes = {
   fill: {
