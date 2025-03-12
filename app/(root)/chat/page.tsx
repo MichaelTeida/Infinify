@@ -14,12 +14,12 @@ const ChatPage = async () => {
     <>
       <Header
         title={"Chat AI"}
-        description={
-          "Engage in interactive conversations powered by artificial intelligence."
-        }
+        // description={
+        //   "Engage in interactive conversations powered by artificial intelligence."
+        // }
       />
       <section className="mt-8 flex flex-col flex-grow">
-        <Chat tokenBalance={user.tokenBalance} />
+        <Chat userId={user._id} tokenBalance={user.tokenBalance} />
       </section>
     </>
   );
