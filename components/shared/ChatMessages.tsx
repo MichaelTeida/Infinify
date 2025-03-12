@@ -60,16 +60,33 @@ const ChatMessages = ({
 
               p({ node, children, ...props }) {
                 return (
-                  <p className="my-2" {...props}>
+                  <p className="my-2 leading-snug" {...props}>
                     {children}
                   </p>
+                );
+              },
+
+              h2({ node, children, ...props }) {
+                return (
+                  <h2 className="mt-2 mb-3 leading-tight text-xl" {...props}>
+                    {children}
+                  </h2>
+                );
+              },
+
+              hr({ ...props }) {
+                return (
+                  <hr
+                    className="my-2 border-none bg-primary/20 leading-tight text-xl h-[2px]"
+                    {...props}
+                  />
                 );
               },
             }}
           />
 
           {message.role === "chat" && (
-            <div className="flex space-x-1 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <div className="flex space-x-1 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
               <Button
                 variant="ghost"
                 size="icon"
