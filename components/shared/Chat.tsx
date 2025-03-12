@@ -48,7 +48,7 @@ const Chat = ({
     defaultValues: {
       message: "",
       model: "google/gemini-2.0-flash-lite-preview-02-05:free",
-      stream: false,
+      stream: true,
     },
   });
 

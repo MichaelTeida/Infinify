@@ -37,7 +37,6 @@ const ChatMessages = ({
           }`}
         >
           <Markdown
-            children={message.content}
             remarkPlugins={[remarkGfm]}
             components={{
               code(props) {
@@ -83,7 +82,9 @@ const ChatMessages = ({
                 );
               },
             }}
-          />
+          >
+            {message.content}
+          </Markdown>
 
           {message.role === "chat" && (
             <div className="flex space-x-1 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
