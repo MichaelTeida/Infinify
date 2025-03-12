@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
         async start(controller) {
           for await (const chunk of completion) {
             const content = chunk.choices[0]?.delta?.content || "";
-            controller.enqueue(encoder.encode(`data: ${content}\n\n`));
+            controller.enqueue(encoder.encode(`${content}`));
           }
           controller.close();
         },
