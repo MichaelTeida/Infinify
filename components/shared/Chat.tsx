@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { tokenFee } from "@/constants";
 import { LackingTokensModal } from "@/components/shared/LackingTokensModal";
 import { Form } from "@/components/ui/form";
@@ -30,6 +30,7 @@ const Chat = ({ tokenBalance }: any) => {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>(
     [],
   );
+  const responseRef = useRef("");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -43,7 +44,8 @@ const Chat = ({ tokenBalance }: any) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     setMessages((prev) => [...prev, { role: "user", content: values.message }]);
-    form.reset({ message: "" });
+    responseRef.current = "";
+    form.resetField("message");
 
     try {
       const response = await fetch(`/api/webhooks/openai`, {
@@ -63,6 +65,29 @@ const Chat = ({ tokenBalance }: any) => {
       }
 
       if (values.stream) {
+        const reader = response.body?.getReader();
+        if (!reader) throw new Error("ReadableStream not supported");
+
+        const decoder = new TextDecoder();
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          const chunk = decoder.decode(value, { stream: true });
+          responseRef.current += chunk;
+          setMessages((prev) => {
+            const updatedMessages = [...prev];
+            if (updatedMessages[updatedMessages.length - 1]?.role === "chat") {
+              updatedMessages[updatedMessages.length - 1].content =
+                responseRef.current;
+            } else {
+              updatedMessages.push({
+                role: "chat",
+                content: responseRef.current,
+              });
+            }
+            return [...updatedMessages];
+          });
+        }
       } else {
         const data = await response.json();
         console.log("API response: ", data);

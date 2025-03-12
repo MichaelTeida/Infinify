@@ -200,7 +200,7 @@
   /* Chat */
 
   .form-chat-messages {
-    @apply flex flex-col w-full flex-grow h-80 overflow-y-auto bg-background rounded-[28px] px-4 py-3 border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20;
+    @apply flex flex-col w-full flex-grow text-gray-800 h-80 overflow-y-auto bg-background rounded-[28px] px-4 py-3 border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20;
   }
 
   .form-chat-messages_message-chat {
@@ -213,6 +213,18 @@
 
   .form-chat-container-input {
     @apply flex w-full items-center bg-background rounded-full box-content border-2 border-orange-200/25 drop-shadow-md shadow-sm shadow-orange-200/20 h-[45px] md:h-[55px];
+  }
+
+  .messages_message-markdown {
+    @apply whitespace-pre-wrap leading-none;
+  }
+
+  .messages_message-table {
+    @apply border-collapse md:table-auto w-full my-2;
+  }
+
+  .messages_message-table > * > * > * {
+    @apply border-[3px] p-2;
   }
 
   .form-chat-container-input_field {
@@ -553,4 +565,19 @@
 
 .messages_icon {
   font-size: 16px !important;
+}
+
+/* Markdown fixes */
+.markdown > * {
+  all: revert !important;
+}
+
+ol {
+  list-style: decimal;
+  padding-left: 2rem;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 2rem;
 }
