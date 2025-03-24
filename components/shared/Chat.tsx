@@ -55,6 +55,8 @@ const Chat = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     setMessages((prev) => [...prev, { role: "user", content: values.message }]);
+    const userMessage = { role: "user", content: values.message };
+    const chatHistory = [...messages, userMessage];
     responseRef.current = "";
     form.resetField("message");
 
@@ -64,7 +66,11 @@ const Chat = ({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          messages: chatHistory,
+          model: values.model,
+          stream: values.stream,
+        }),
       });
 
       if (!response.ok) {
@@ -99,12 +105,14 @@ const Chat = ({
           responseRef.current += chunk;
           setMessages((prev) => {
             const updatedMessages = [...prev];
-            if (updatedMessages[updatedMessages.length - 1]?.role === "chat") {
+            if (
+              updatedMessages[updatedMessages.length - 1]?.role === "assistant"
+            ) {
               updatedMessages[updatedMessages.length - 1].content =
                 responseRef.current;
             } else {
               updatedMessages.push({
-                role: "chat",
+                role: "assistant",
                 content: responseRef.current,
               });
             }
@@ -117,13 +125,17 @@ const Chat = ({
 
         setMessages((prev) => [
           ...prev,
-          { role: "chat", content: data.response },
+          { role: "assistant", content: data.response },
         ]);
       }
     } catch (error: any) {
       console.error("Fetch error:", error);
     } finally {
       setIsSubmitting(false);
+      console.log("messages:");
+      console.log(messages);
+      console.log("chatHistory:");
+      console.log(chatHistory);
     }
   };
 

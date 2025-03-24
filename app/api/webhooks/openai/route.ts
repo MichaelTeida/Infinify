@@ -15,11 +15,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { message, model, stream } = await req.json();
+    const { messages, model, stream } = await req.json();
 
-    if (!message) {
+    if (!messages) {
       return NextResponse.json(
-        { error: "Message is required" },
+        { error: "Messages is required" },
         { status: 400 },
       );
     }
@@ -28,10 +28,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Model is required" }, { status: 400 });
     }
 
+    let formattedMessages = messages;
+    if (model.startsWith("google")) {
+      console.log("Google model selected");
+      formattedMessages = messages.map((message: any) => ({
+        role: message.role,
+        content: [
+          {
+            type: "text",
+            text: message.content,
+          },
+        ],
+      }));
+    }
+
     if (stream) {
       const completion = await openai.chat.completions.create({
         model: model,
-        messages: [{ role: "user", content: message }],
+        messages: formattedMessages,
         stream: true,
       });
 
@@ -40,7 +54,8 @@ export async function POST(req: NextRequest) {
         async start(controller) {
           for await (const chunk of completion) {
             const content = chunk.choices[0]?.delta?.content || "";
-            controller.enqueue(encoder.encode(`${content}`));
+            if (!content) continue;
+            controller.enqueue(encoder.encode(content));
           }
           controller.close();
         },
@@ -56,7 +71,7 @@ export async function POST(req: NextRequest) {
     } else {
       const completion = await openai.chat.completions.create({
         model: model,
-        messages: [{ role: "user", content: message }],
+        messages: formattedMessages,
         stream: false,
       });
 
@@ -65,8 +80,8 @@ export async function POST(req: NextRequest) {
     }
   } catch (error: any) {
     console.error("OpenAI API error:", error);
-    NextResponse.json(
-      { error: "Error communicating with OpenAI" },
+    return NextResponse.json(
+      { error: "Error communicating with AI Provider - OpenAI API error" },
       { status: 500 },
     );
   }
