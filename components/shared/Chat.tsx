@@ -147,30 +147,30 @@ const Chat = ({
           className="space-y-8 flex flex-col flex-grow min-h-0"
         >
           {tokenBalance < Math.abs(tokenFeeChat) && <LackingTokensModal />}
-          <CustomField
-            control={form.control}
-            name="model"
-            formLabel="Model select"
-            className="w-full"
-            render={({ field }) => (
-              <Select onValueChange={(value) => {}} value={field.value}>
-                <SelectTrigger className="form-select_field">
-                  <SelectValue placeholder="Choose model" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem key={"1"} value={"testValue1"}>
-                    testChoice1
-                  </SelectItem>
-                  <SelectItem key={"2"} value={"testValue2"}>
-                    testChoice2
-                  </SelectItem>
-                  <SelectItem key={"3"} value={"testValue3"}>
-                    testChoice3
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            )}
-          />
+          {/*<CustomField*/}
+          {/*  control={form.control}*/}
+          {/*  name="model"*/}
+          {/*  formLabel="Model select"*/}
+          {/*  className="w-full"*/}
+          {/*  render={({ field }) => (*/}
+          {/*    <Select onValueChange={(value) => {}} value={field.value}>*/}
+          {/*      <SelectTrigger className="form-select_field">*/}
+          {/*        <SelectValue placeholder="Choose model" />*/}
+          {/*      </SelectTrigger>*/}
+          {/*      <SelectContent>*/}
+          {/*        <SelectItem key={"1"} value={"testValue1"}>*/}
+          {/*          testChoice1*/}
+          {/*        </SelectItem>*/}
+          {/*        <SelectItem key={"2"} value={"testValue2"}>*/}
+          {/*          testChoice2*/}
+          {/*        </SelectItem>*/}
+          {/*        <SelectItem key={"3"} value={"testValue3"}>*/}
+          {/*          testChoice3*/}
+          {/*        </SelectItem>*/}
+          {/*      </SelectContent>*/}
+          {/*    </Select>*/}
+          {/*  )}*/}
+          {/*/>*/}
 
           <ChatMessages messages={messages} />
 
