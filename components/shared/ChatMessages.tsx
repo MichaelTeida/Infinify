@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -18,6 +18,14 @@ const ChatMessages = ({
     [key: number]: "like" | "dislike" | null;
   }>({});
 
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
+    }
+  }, [messages]);
+
   const handleFeedback = (index: number, type: "like" | "dislike") => {
     setFeedback((prev) => ({
       ...prev,
@@ -26,7 +34,7 @@ const ChatMessages = ({
   };
 
   return (
-    <div className="form-chat-messages">
+    <div className="form-chat-messages" ref={messagesEndRef}>
       {messages.map((message, index) => (
         <div
           key={index}
@@ -124,6 +132,7 @@ const ChatMessages = ({
           )}
         </div>
       ))}
+      <div ref={messagesEndRef}></div>
     </div>
   );
 };
