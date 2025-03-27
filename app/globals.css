@@ -572,12 +572,12 @@
   all: revert !important;
 }
 
-ol {
+.form-chat-messages ol {
   list-style: decimal;
   padding-left: 2rem;
 }
 
-ul {
+.form-chat-messages ul {
   list-style: disc;
   padding-left: 2rem;
 }
