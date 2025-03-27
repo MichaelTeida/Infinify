@@ -8,8 +8,14 @@ Infinify is a Software as a Service (SaaS) application that leverages advanced A
 AI-powered tool to easily remove backgrounds from your images.
 
 ![backgroundRemovePresentation.gif](public/assets/gifs/backgroundRemovePresentation.gif)
+****
 
-- 🟢 **Generative Fill**: Fill in missing parts of your images using AI.
+### 🟢 Generative Fill
+Fill in missing parts of your images using AI.
+
+![generativeFillPresentation.gif](public/assets/gifs/generativeFillPresentation.gif)
+****
+
 - 🟢 **Object Remove**: Remove unwanted objects from your images using AI.
 - 🟢 **Object Recolor**: Change the color of objects in your images using AI.
 - 🟢 **Image Restore**: Enhance the resolution of your images with AI.
