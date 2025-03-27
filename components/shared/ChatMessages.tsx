@@ -73,11 +73,27 @@ const ChatMessages = ({
                 );
               },
 
+              h1({ node, children, ...props }) {
+                return (
+                  <h1 className="mt-2 mb-3 leading-tight text-2xl" {...props}>
+                    {children}
+                  </h1>
+                );
+              },
+
               h2({ node, children, ...props }) {
                 return (
                   <h2 className="mt-2 mb-3 leading-tight text-xl" {...props}>
                     {children}
                   </h2>
+                );
+              },
+
+              h3({ node, children, ...props }) {
+                return (
+                  <h3 className="mt-2 mb-3 leading-tight text-lg" {...props}>
+                    {children}
+                  </h3>
                 );
               },
 
