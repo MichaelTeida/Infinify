@@ -16,12 +16,30 @@ Fill in missing parts of your images using AI.
 ![generativeFillPresentation.gif](public/assets/gifs/generativeFillPresentation.gif)
 ****
 
-- 🟢 **Object Remove**: Remove unwanted objects from your images using AI.
-- 🟢 **Object Recolor**: Change the color of objects in your images using AI.
-- 🟢 **Image Restore**: Enhance the resolution of your images with AI.
-- 🟢 **Token System**: Purchase and use tokens to access the various SaaS features.
-- 🟢 **AI Chat**: Engage in interactive conversations powered by artificial intelligence.
-- 🔴 **Image Generator**: Generate images based on your descriptions using AI. - _in progress..._
+### 🟢 Object Remove
+Remove unwanted objects from your images using AI.
+****
+
+### 🟢 Object Recolor
+Change the color of objects in your images using AI.
+****
+
+### 🟢 Image Restore
+Enhance the resolution of your images with AI.
+****
+
+### 🟢 Token System
+Purchase and use tokens to access the various SaaS features.
+****
+
+### 🟢 AI Chat
+- Engage in interactive conversations powered by artificial intelligence.
+
+![chatAiPresentation.gif](public/assets/gifs/chatAiPresentation.gif)
+****
+
+### 🔴 Image Generator
+Generate images based on your descriptions using AI. - _in progress..._
 
 ## Technologies
 
