@@ -150,17 +150,22 @@ const ModificationForm = ({
   const onInputChangeHandler = (
     fieldName: string,
     value: string,
-    type: string,
+    type: ModificationTypeKey,
     onChangeField: (value: string) => void,
   ) => {
     debounce(() => {
-      setNewModification((prevState: any) => ({
-        ...prevState,
-        [type]: {
-          ...prevState?.[type],
-          [fieldName === "prompt" ? "prompt" : "to"]: value,
-        },
-      }));
+      setNewModification((prevState: any) => {
+        const typeDefaults =
+          (modificationTypes[type]?.config as any)?.[type] || {};
+        return {
+          ...prevState,
+          [type]: {
+            ...typeDefaults,
+            ...prevState?.[type],
+            [fieldName === "prompt" ? "prompt" : "to"]: value,
+          },
+        };
+      });
     }, 1000)();
     return onChangeField(value);
   };
