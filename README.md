@@ -35,7 +35,7 @@ Purchase and use tokens to access the various SaaS features.
 ****
 
 ### 🟢 AI Chat
-- Engage in interactive conversations powered by artificial intelligence.
+Engage in interactive conversations powered by artificial intelligence.
 
 ![chatAiPresentation.gif](public/assets/gifs/chatAiPresentation.gif)
 ****
