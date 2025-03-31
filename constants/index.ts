@@ -98,7 +98,7 @@ export const modificationTypes = {
     title: "Object Remove",
     description: "Remove unwanted objects from your image",
     config: {
-      remove: { prompt: "", removeShadow: true, multiple: true },
+      remove: { prompt: "", removeShadow: true, multiple: false },
     },
     icon: SearchOffIcon,
   },
