@@ -18,6 +18,8 @@ Fill in missing parts of your images using AI.
 
 ### 🟢 Object Remove
 Remove unwanted objects from your images using AI.
+
+![objectRemovePresentation.gif](public/assets/gifs/objectRemovePresentation.gif)
 ****
 
 ### 🟢 Object Recolor
