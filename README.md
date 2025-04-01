@@ -24,6 +24,8 @@ Remove unwanted objects from your images using AI.
 
 ### 🟢 Object Recolor
 Change the color of objects in your images using AI.
+
+![objectRecolorPresentation.gif](public/assets/gifs/objectRecolorPresentation.gif)
 ****
 
 ### 🟢 Image Restore
