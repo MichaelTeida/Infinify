@@ -121,7 +121,6 @@ const Chat = ({
         }
       } else {
         const data = await response.json();
-        console.log("API response: ", data);
 
         setMessages((prev) => [
           ...prev,
@@ -132,10 +131,6 @@ const Chat = ({
       console.error("Fetch error:", error);
     } finally {
       setIsSubmitting(false);
-      console.log("messages:");
-      console.log(messages);
-      console.log("chatHistory:");
-      console.log(chatHistory);
     }
   };
 
